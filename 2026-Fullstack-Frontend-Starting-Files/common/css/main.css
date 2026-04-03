@@ -1,0 +1,7 @@
+@import "bootstrap.min.css";
+@import "global_vars.css";
+/* Import student CSS files here */
+@import "../../student1/css/student1.css";
+@import "../../student2/css/student2.css";
+@import "../../student3/css/student3.css";
+@import "../../student4/css/student4.css";
