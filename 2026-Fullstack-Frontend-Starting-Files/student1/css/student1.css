@@ -1,0 +1,131 @@
+/* ================================
+   STUDENT 1 — Voeding & Lifestyle
+   Custom Stylesheet
+   Auteur: Tom Van Gael
+================================ */
+
+/* -------------------------------
+   KLEUREN & VARIABELEN
+   (sluiten aan bij main.css)
+-------------------------------- */
+:root {
+    --s1-green: #4CAF50;
+    --s1-green-dark: #3d8b41;
+    --s1-soft-bg: #f3f8f3;
+    --s1-text-dark: #0f2a0f;
+}
+
+/* ================================
+   STUDENT 1 — Navbar kleur
+================================ */
+.student1-page .navbar {
+    background-color: var(--s1-green) !important;
+}
+
+.student1-page .navbar .nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+.student1-page .navbar .nav-link:hover,
+.student1-page .navbar .nav-link.active {
+    color: var(--s1-green-dark) !important;
+}
+
+/*.student1-page .navbar-brand img {
+    filter: brightness(0) invert(1); optioneel
+}*/
+
+/* -------------------------------
+   HERO — Student 1 Variant
+-------------------------------- */
+.hero.student1-hero {
+    background: var(--s1-soft-bg);
+    border-left: 6px solid var(--s1-green);
+    border-right: 6px solid var(--s1-green);
+    padding: 4rem 2rem;
+}
+
+.hero.student1-hero h1 {
+    color: var(--s1-green-dark);
+    font-size: 2.4rem;
+}
+
+.hero.student1-hero p {
+    color: var(--s1-text-dark);
+    font-size: 1.1rem;
+}
+
+/* -------------------------------
+   BUTTONS — Student 1 Accent
+-------------------------------- */
+.btn-s1 {
+    background: var(--s1-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    /* Animatie zoals team-cards */
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.btn-s1:hover {
+    background: var(--s1-green-dark) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* -------------------------------
+   CONTENT BLOCKS
+-------------------------------- */
+.s1-section {
+    background: var(--s1-soft-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid var(--s1-green);
+    margin-bottom: 3rem;
+}
+
+.s1-section h2 {
+    color: var(--s1-green-dark);
+    margin-bottom: 1rem;
+}
+
+.s1-section p {
+    color: var(--s1-text-dark);
+}
+
+/* -------------------------------
+   IMAGES
+-------------------------------- */
+.s1-img {
+    width: 100%;
+    height: 280px;      /* kies zelf de hoogte */
+    object-fit: cover;  /* zorgt dat de afbeelding mooi bijsnijdt */
+    border-radius: 12px;
+    border: 3px solid var(--s1-green);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    /* Animatie zoals team-cards */
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.s1-img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* -------------------------------
+   RESPONSIVE TWEAKS
+-------------------------------- */
+@media (max-width: 768px) {
+    .hero.student1-hero {
+        padding: 2.5rem 1rem;
+    }
+
+    .hero.student1-hero h1 {
+        font-size: 1.9rem;
+    }
+}
