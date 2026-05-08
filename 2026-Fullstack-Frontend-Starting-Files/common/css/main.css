@@ -2,25 +2,25 @@
 @import "global_vars.css";
 
 /* ================================
-   MAIN.CSS — Shared Team Styles
-   Modern Fitness Theme
-   ================================ */
+   MAIN.CSS — Industrial Neon 2.0
+   Lichter, dynamischer, moderner
+================================ */
 
 /* -------------------------------
-   CSS VARIABLES (Branding)
+   COLOR PALETTE
 -------------------------------- */
 :root {
-    --color-bg: #ffffff;
-    --color-text: #111111;
-    --color-accent: #AC0BD9;
-    --color-accent-light: #DF99F2;
-    --color-accent-dark: #713CA6;
-    --color-banner: #DCD922;
+    --color-bg: #000000;
+    --color-text: #F5EA56;
+    --color-accent: #C763F2;
+    --color-accent-dark: #9632D9;
+    --color-accent-alt: #713CA6;
+    --color-highlight: #F5EA56;
 
-    --font-title: "Bebas Neue", sans-serif;
     --font-main: "Montserrat", sans-serif;
+    --font-heading: "Bebas Neue", sans-serif;
 
-    --radius: 8px;
+    --radius: 10px;
     --transition: 0.25s ease;
 }
 
@@ -33,144 +33,239 @@
     box-sizing: border-box;
 }
 
+/* -------------------------------
+   LIGHTER INDUSTRIAL BACKGROUND
+-------------------------------- */
 body {
-    background: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-main);
     line-height: 1.6;
+
+    background-color: #000;
+
+    /* subtieler dan vorige versie */
+    background-image:
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.01) 0px,
+                    rgba(255,255,255,0.01) 2px,
+                    rgba(255,255,255,0.005) 2px,
+                    rgba(255,255,255,0.005) 4px
+            ),
+            radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 70%);
 }
 
 /* -------------------------------
-   TYPOGRAPHY
+   TYPOGRAPHY — Softer Neon
 -------------------------------- */
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
+    letter-spacing: 1px;
     font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-highlight);
+    animation: neonGlow 3s ease-in-out infinite alternate;
 }
 
-p {
-    margin-bottom: 1rem;
+@keyframes neonGlow {
+    0% {
+        text-shadow:
+                0 0 4px var(--color-highlight),
+                0 0 8px var(--color-accent);
+    }
+    100% {
+        text-shadow:
+                0 0 6px var(--color-highlight),
+                0 0 12px var(--color-accent-dark);
+    }
 }
 
 /* -------------------------------
-   NAVBAR
+   NAVBAR — Slimmer, cleaner
 -------------------------------- */
-.logo {
+.navbar {
+    padding: 0.6rem 1rem;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: none; /* rand weg */
 }
 
 .navbar-brand img {
-    height: 100px;
-}
-
-.navbar {
-    padding: 1rem;
-    background: var(--color-accent);
-    border-bottom: 1px solid #ddd;
-    color: var(--collor-fitnessBlue);
+    height: 80px;
+    filter: none;
+    margin-left: 80px; /* logo 80px naar rechts */
 }
 
 .nav-link {
-    color: var(--collor-fitnessBlue);
-    font-weight: bold;
+    color: var(--color-highlight);
+    font-weight: 600;
     margin-left: 1rem;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+/* Banner als watermerk binnen containerbreedte */
+.navbar-inner {
+    position: relative;
+}
+
+.navbar-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /*background-image: url("../assets/banner.webp");*/
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6; /* watermerk */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Zorg dat inhoud boven de banner staat */
+.navbar-inner > * {
+    position: relative;
+    z-index: 2;
 }
 
 /* -------------------------------
-   BUTTONS
+   BUTTONS — Modern Rounded
 -------------------------------- */
-/* ============================
-   BUTTON HOVER EFFECT
-============================ */
 .btn-accent {
     background: var(--color-accent);
-    color: var(--collor-fitnessBlue);
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius);
+    color: #000;
+    font-weight: 700;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
     border: none;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.25s ease;
+    transition: var(--transition);
+    letter-spacing: 1px;
+    text-decoration: none;
     display: inline-block;
 }
 
-/* Hover: lichte rotatie + lift + schaduw */
 .btn-accent:hover {
     background: var(--color-accent-dark);
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    color: var(--color-highlight);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
 /* -------------------------------
-   HERO SECTION
+   HERO SECTION — Lichter & dynamisch
 -------------------------------- */
 .hero_wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 6rem 1.5rem 4rem;
+    background: linear-gradient(
+            135deg,
+            rgba(0,0,0,0.8) 40%,
+            rgba(113,60,166,0.35)
+    );
 }
 
 .hero {
-    padding: 4rem 1.5rem;
-    width: 50vw;
     text-align: center;
-    background: var(--color-banner);
-    display: block;
+    max-width: 650px;
+    margin: auto;
 }
 
 .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 3.2rem;
 }
 
 .hero p {
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
 }
 
 /* -------------------------------
-   TEAM SECTION
+   TEAM SECTION — Dynamischer grid
 -------------------------------- */
 .team-section {
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem;
 }
 
 .team-grid {
     display: grid;
     gap: 2rem;
-}
-
-/* ============================
-   TEAM CARD HOVER EFFECT
-============================ */
-.team-card {
-    background: var(--color-accent);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    text-align: center;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
-    cursor: pointer;
-}
-
-/* Hover: lichte rotatie + verschuiving + schaduw */
-.team-card:hover {
-    background: var(--color-accent-dark);
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
 /* -------------------------------
-   FOOTER
+   TEAM CARDS — Modern Metal Plate
+-------------------------------- */
+.team-card {
+    background: linear-gradient(160deg, #111, #0a0a0a);
+    border: 2px solid var(--color-accent);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+
+    /* dynamischer */
+    transform: translateY(0) scale(1);
+}
+
+.team-card h3 {
+    color: var(--color-highlight);
+    font-size: 1.8rem;
+}
+
+.team-card:hover {
+    background: #000;
+    border-color: var(--color-accent-dark);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+/* ============================================
+   BACKGROUND WATERMARK — Onderste helft pagina
+============================================ */
+.page-lower-bg {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.page-lower-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+
+    background-image: url("../assets/Background.webp");
+    background-size: cover;        /* vult ALTIJD de volledige hoogte */
+    background-position: center;   /* mooi gecentreerd */
+    background-repeat: no-repeat;  /* geen herhaling */
+
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* -------------------------------
+   FOOTER — Clean & modern
 -------------------------------- */
 footer {
-    margin-top: 3rem;
+    margin-top: 4rem;
     padding: 2rem 1rem;
-    background: #575555;
-    color: #fff;
+    background: #000;
+    border-top: 2px solid var(--color-accent);
+    color: var(--color-highlight);
     text-align: center;
     font-size: 0.9rem;
 }
 
 footer a {
     color: var(--color-accent);
+    font-weight: 600;
     text-decoration: none;
 }
