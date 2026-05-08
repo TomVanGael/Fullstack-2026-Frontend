@@ -17,13 +17,13 @@
 :root {
     --color-bg: #ffffff;
     --color-text: #111111;
-    --color-accent: #e97d09;
-    --color-accent-dark: #f25c08;
-    --color-banner: #dddbdb;
-    --collor-fitnessBlue: #0446A4;
+    --color-accent: #AC0BD9;
+    --color-accent-light: #DF99F2;
+    --color-accent-dark: #713CA6;
+    --color-banner: #DCD922;
 
-    --font-main: "Inter", Arial, sans-serif;
-    --font-heading: "Montserrat", sans-serif;
+    --font-title: "Bebas Neue", sans-serif;
+    --font-main: "Montserrat", sans-serif;
 
     --radius: 8px;
     --transition: 0.25s ease;
@@ -60,8 +60,11 @@ p {
 /* -------------------------------
    NAVBAR
 -------------------------------- */
+.logo {
+}
+
 .navbar-brand img {
-    height: 40px;
+    height: 100px;
 }
 
 .navbar {
