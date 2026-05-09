@@ -121,6 +121,79 @@
     0 0 18px var(--s1-accent);
 }
 
+.tip-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+    backdrop-filter: blur(6px);
+    height: 100%;
+}
+
+.tip-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-s1);
+    box-shadow: 0 0 12px var(--accent-s1);
+}
+
+.tip-icon {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.tip-card h4 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.tip-card p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* -------------------------------
+   PAGE LOWER BACKGROUND HEIGHT FIX
+   (Achtergrond half zo hoog)
+-------------------------------- */
+/* Zorg dat de algemene achtergrond niet stoort op deze pagina */
+body.student1-page {
+    background-image: none !important;
+}
+/* -------------------------------
+   PAGE LOWER BACKGROUND — alleen achter de middelste kaders
+-------------------------------- */
+/* de afbeelding zelf */
+.page-lower-bg {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+}
+
+/* De echte achtergrondafbeelding */
+.page-lower-bg .bg-img {
+    width: 100%;      /* 100% breed, nooit uitrekken */
+    height: auto;     /* behoudt verhoudingen */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;      /* achter de content */
+}
+
+.page-lower-bg::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+    pointer-events: none;
+}
+
 /* -------------------------------
    RESPONSIVE TWEAKS
 -------------------------------- */
