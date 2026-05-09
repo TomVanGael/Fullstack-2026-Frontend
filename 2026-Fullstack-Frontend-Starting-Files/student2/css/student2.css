@@ -1,3 +1,5 @@
+/*=============================NAVBAR=======================*/
+
 .navbar-brand {
     .logo {
         height: 170px;
@@ -5,9 +7,12 @@
     }
 }
 
-.navbar-toggler{
+.navbar-toggler {
     background-color: rgba(223, 153, 242, 0.54);
 }
+
+
+/*=============================BANNER=======================*/
 
 .banner-container {
     position: relative;
@@ -21,36 +26,117 @@
     object-position: 50% 10%;
 }
 
+.tekst-banner {
+    font-size: 0.9rem !important;
+    color: #ffff;
+}
+
 .banner-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     padding: 20px;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5%;
-}
-
-.form-container{
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
-    width: 90%; /* Zorgt voor de witruimte links en rechts*/
-    max-width: 1800px;
-    margin: 60px auto;
-    padding: 2rem;
-    /*background-color: rgb(74, 7, 140);*/
-    background-color: rgba(172, 11, 217, 0.8);
 }
 
-.h2-map{
-    margin-bottom: 20px;
-}
+/*===========================FORMULIER=========================*/
 
-.map-container{
+.form-container {
     border-radius: 20px;
-    border: 100px rgb(255, 255, 255);
+    BORDER: 3px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(199, 99, 242, 0.5);
     width: 90%; /* Zorgt voor de witruimte links en rechts*/
     max-width: 1500px;
     margin: 60px auto;
     padding: 2rem;
-    background-color: rgba(172, 11, 217, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+
+    .titel-form {
+        color: #C763F2 !important;
+    }
+
 }
+
+.modal-content {
+    background-color: rgb(74, 7, 140);;
+    border-radius: 20px;
+    BORDER: 3px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(199, 99, 242, 0.5);
+
+    .text-modal {
+        text-decoration-color: #F5EA56 !important;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+}
+
+/*=============================MAP EN OPENINGSUREN=================================*/
+
+
+.map-div {
+    border-radius: 20px;
+    BORDER: 3px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(199, 99, 242, 0.5);
+    max-width: 1500px;
+    width: 90%;
+    margin: 60px auto;
+    padding: 2rem;
+
+    .h2-map {
+        margin-left: 4.5rem;
+    }
+}
+
+
+.map-container {
+    border-radius: 50px;
+    HEIGHT: 500px;
+    border: 100px rgb(255, 255, 255);
+    width: 90%; /* Zorgt voor de witruimte links en rechts*/
+    max-width: 1500px;
+    margin: 20px auto;
+    /*padding: 2rem;*/
+    background-color: rgba(172, 11, 217, 0.8);
+    /*color: #ffffff;*/
+}
+
+iframe {
+    /*filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(105%); !* om de kleuren te inverteren voor de donkere stijl: AI *!*/
+    border-radius: 50px;
+}
+
+.info-adres-opening {
+    margin-top: 1rem;
+    color: #ffffff !important;
+}
+
+/*=============================ACCORDION FAQ=================================*/
+
+.accordion-container {
+    border-radius: 20px;
+    BORDER: 3px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(199, 99, 242, 0.5);
+    max-width: 1500px;
+    width: 90%;
+    margin: 60px auto;
+    padding: 2rem;
+
+    .accordion-button {
+        background-color: rgba(10, 10, 10, 0.87);
+        color: #ffffff;
+    }
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #C763F2;
+    color: #ffffff;
+}
+
+
+
+
