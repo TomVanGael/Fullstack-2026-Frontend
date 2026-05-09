@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 746 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dumbellGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DF99F2" />
+      <stop offset="50%" stop-color="#AC0BD9" />
+      <stop offset="100%" stop-color="#4A078C" />
+    </linearGradient>
+  </defs>
+
+  <polygon points="124,4 244,74 244,204 124,274 4,204 4,74" fill="#000000" stroke="#AC0BD9" stroke-width="8" stroke-linejoin="round"/>
+  
+  <polygon points="124,22 226,81 226,197 124,256 22,197 22,81" fill="none" stroke="#DCD922" stroke-width="2.5" opacity="0.9"/>
+
+  <g>
+    <rect x="64" y="129" width="120" height="20" fill="#DF99F2" rx="2" ry="2" />
+    <rect x="64" y="139" width="120" height="10" fill="#4A078C" rx="2" ry="2" /> <rect x="49" y="104" width="18" height="70" fill="url(#dumbellGradient)" rx="2" ry="2"/>
+    <rect x="26" y="114" width="18" height="50" fill="url(#dumbellGradient)" rx="2" ry="2"/>
+
+    <rect x="181" y="104" width="18" height="70" fill="url(#dumbellGradient)" rx="2" ry="2"/>
+    <rect x="204" y="114" width="18" height="50" fill="url(#dumbellGradient)" rx="2" ry="2"/>
+  </g>
+
+  <circle cx="12" cy="79" r="4" fill="#DF99F2"/>
+  <circle cx="236" cy="79" r="4" fill="#DF99F2"/>
+  <circle cx="12" cy="199" r="4" fill="#DF99F2"/>
+  <circle cx="236" cy="199" r="4" fill="#DF99F2"/>
+  <circle cx="124" cy="16" r="4" fill="#DF99F2"/>
+  <circle cx="124" cy="262" r="4" fill="#DF99F2"/>
+
+  <text x="279" y="149" font-family="'Arial Black', Impact, sans-serif" font-size="75" font-weight="900" fill="#000000" text-anchor="start" letter-spacing="2">IRONCLAD</text>
+  
+  <text x="284" y="199" font-family="'Arial', sans-serif" font-size="28" font-weight="bold" fill="#4A078C" text-anchor="start" letter-spacing="14">FITNESS</text>
+  
+  <line x1="284" y1="219" x2="744" y2="219" stroke="#DCD922" stroke-width="4"/>
+</svg>
