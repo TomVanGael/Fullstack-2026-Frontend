@@ -91,7 +91,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-brand img {
-    height: 80px;
+    height: 200px;
     filter: none;
     margin-left: 80px; /* logo 80px naar rechts */
 }
