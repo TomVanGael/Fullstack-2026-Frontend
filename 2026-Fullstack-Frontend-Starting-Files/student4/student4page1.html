@@ -1,14 +1,167 @@
 <!doctype html>
-<!-- Name:
-    Class:
-    R-number:
+<!-- Name: Mouws Eddy
+    Class: 1WT TOegepast
+    R-number: R1118617
      -->
 
-<html lang="en">
+<html lang="nl">
     <head>
         <meta charset="UTF-8" />
-        <title>Document</title>
-        <meta name="author" content="your name" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Mouws Eddy, R1118617" />
+        <meta name="description" content="De drukte in de gym online inzien.">
+
+        <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../common/css/main.css">
+        <link rel="stylesheet" href="css/student4.css">
+
+        <!--  Favicons  -->
+        <link rel="icon" type="image/png" href="../common/assets/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/x-icon" href="../common/assets/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="../common/assets/favicon.svg" />
+        <link rel="shortcut icon" href="../common/assets/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="../common/assets/apple-touch-icon.png" />
+        <link rel="manifest" href="../common/assets/site.webmanifest" />
+
+        <title>Ironcladd Fitness - Online druktemeter</title>
     </head>
-    <body></body>
+
+    <body class="student4-page">
+        <header>
+            <div>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="navbar-inner container">
+                        <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
+                            <img src="../common/assets/ironclad-svg.svg" alt="Logo" class="logo">
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navMenu">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a class="nav-link" href="../student1/student1page1.html">Student 1</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Student 2</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../student3/student3page1.html">Student 3</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="student4page1.html">Student 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+    <div id="background"></div>
+
+    <div class="text-overlay">
+        <main id="content" class="container mt-5">
+            <H1>Online druktemeter</H1>
+            Je wilt in alle rust trainen zodat je je focus kunt vasthouden. Niets zo vervelend als pas bij aankomst erachter te komen dat het drukker is dan je had gehoopt.
+            Daarom kun je hier de online drukte zien in de fitness én de groepslessen!
+            <p></p>
+
+            <div class="hero_wrapper">
+                <section class="hero">
+                    <h1>Focus & Drukte</h1>
+                    <p>Een training kan alleen perfect zijn wanneer jij gefocussed kunt blijven. Bekijk deze video van onze trainer voor meer uitleg.</p>
+                    <iframe src="https://share.synthesia.io/embeds/videos/5464067e-2666-47bd-b393-88788cb3e4f8" loading="lazy" title="Synthesia video player - Kom trainen bij Ironclad Fitness!" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;" style="border: none; padding: 0; margin: 0; overflow:hidden;"></iframe>
+                </section>
+            </div>
+
+            <section>
+                <H2>Drukte</H2>
+                Hieronder vind u de realtime drukte in de fitness.
+                De drukte wordt weergegeven als percentage van de maximale capaciteit.
+                Zo weet u precies wanneer het rustig is en wanneer u beter een ander moment kunt kiezen om te komen trainen.
+                <p></p>
+
+                <!--
+                Part below will be dynamically updated with JavaScript to reflect the current busyness.
+                The elements will be adjusted based on the data we receive from our API.
+                -->
+
+
+                <table class="table-busy">
+                    <caption style="text-align:right">Actuele drukte in de gym</caption>
+                    <thead>
+                    <tr>
+                        <th>Groepsles</th>
+                        <th>Drukte</th>
+                        <th>Gemiddelde wachttijd<br>(minuten)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Spinning</td>
+                        <td><meter class="s4-bustle-meter" value="11" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>4,5</td>
+                    </tr>
+                    <tr>
+                        <td>Aerobics</td>
+                        <td><meter class="s4-bustle-meter" value="49" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>7,2</td>
+                    </tr>
+                    <tr>
+                        <td>Steps</td>
+                        <td><meter class="s4-bustle-meter" value="51" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>10,0</td>
+                    </tr>
+                    <tr>
+                        <td>Body Attack</td>
+                        <td><meter class="s4-bustle-meter" value="85" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>12,6</td>
+                    </tr>
+                    <tr>
+                        <td>Zumba</td>
+                        <td><meter class="s4-bustle-meter" value="51" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>14,7</td>
+                    </tr>
+                    <tr>
+                        <td>Circuit training</td>
+                        <td><meter class="s4-bustle-meter" value="49" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>16,3</td>
+                    </tr>
+                    <tr>
+                        <td>BBB</td>
+                        <td><meter class="s4-bustle-meter" value="11" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>17,3</td>
+                    </tr>
+                    <tr>
+                        <td>Yoga</td>
+                        <td><meter class="s4-bustle-meter" value="78" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>18,2</td>
+                    </tr>
+                    <tr>
+                        <td>BodyBalance</td>
+                        <td><meter class="s4-bustle-meter" value="56" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>18,8</td>
+                    </tr>
+                    <tr>
+                        <td>Kickboksen</td>
+                        <td><meter class="s4-bustle-meter" value="31" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
+                        <td>19,1</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a href="../index.html" class="btn-accent">Terug naar Home</a>
+
+            </section>
+
+        </main>
+    </div>
+    <footer>
+        <p>© 2026 — Fictieve website voor een schoolopdracht</p>
+        <p>Gemaakt door Group L — <a href="https://www.thomasmore.be">Thomas More</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
 </html>
+
+
+
+
