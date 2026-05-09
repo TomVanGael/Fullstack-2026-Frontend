@@ -2,6 +2,7 @@
 <!-- Name: Rene
     Class: Van Asch
     R-number: r1089588
+    branch dat ik werk: rene-contactpagina
      -->
 
 <html lang="nl">
@@ -19,7 +20,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="../common/css/main.css">
     <link rel="stylesheet" href="css/student2.css">
-    <link href="assets/logo_icon.png"
+    <link href="../common/assets/ironclad-svg.svg"
           rel="icon" type="image/x-icon">
 
     <!--  Favicons  -->
@@ -32,15 +33,17 @@
     <link rel="manifest" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/site.webmanifest"/>
 
 <body>
-<!-- ============================
-     NAVBAR
-============================ -->
+
+
+<!--  ===============================                                        ========================                       -->
+<!--  ===============================               NAVBAR                   ========================                       -->
+<!--  ===============================                                        ========================                       -->
 <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
                 <img
-                        src="assets/logo-navbar-test.png"
+                        src="../common/assets/logo-navbar-neon.webp"
                         alt="Logo"
                         class="logo">
             </a>
@@ -62,18 +65,22 @@
 </header>
 
 
-<!-- ============================
-     HERO SECTION
-============================ -->
+<!--  ===============================                                        ========================                       -->
+<!--  ===============================           BANNER                       ========================                       -->
+<!--  ===============================                                        ========================                       -->
 <div class="banner-container">
     <img src="assets/banner.png" alt="banner-img" class="img-banner">
 
     <section class="hero banner-overlay">
         <h1>Contacteer ons</h1>
-        <p>Hier kan je contact met ons opnemen en bekijken waar je ons kan vinden.</p>
-        <a href="#team" class="btn-accent">Ontmoet het team</a>
+        <p class="tekst-banner">Neem contact met ons opnemen en bekijk waar onze vestiging is.</p>
     </section>
 </div>
+
+
+<!--  ===============================                                        ========================                       -->
+<!--  ===============================           FORMULIER                    ========================                       -->
+<!--  ===============================                                        ========================                       -->
 
 <div class="form-container my-5">
     <form action="https://it-fact.be/form.php" method="get">
@@ -83,14 +90,14 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Jouw naam*</label>
-            <input type="text" class="form-control" id="naam" placeholder="Geef je naam"
+            <input type="text" class="form-control" required type="text" id="naam" placeholder="Geef je naam"
                    aria-describedby="emailHelp">
 
         </div>
 
-        <div>
+        <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Waarom neem je contact op?*</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" required aria-label="Default select example">
                 <option selected>Kies een antwoord</option>
                 <option value="1">Vragen over lidmaatschap</option>
                 <option value="2">Abonnement wijzigen of opzeggen</option>
@@ -102,15 +109,15 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input type="email" class="form-control" required type="email" id="exampleInputEmail1"
+                   aria-describedby="emailHelp"
                    placeholder="Geef je mailadres">
             <div id="emailHelp" class="form-text">We delen je mail met niemand.</div>
         </div>
 
-
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" id="bericht" class="form-label">Bericht*</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Geef je bericht in"
+            <textarea class="form-control" required id="exampleFormControlTextarea1" placeholder="Geef je bericht in"
                       rows="3"></textarea>
         </div>
 
@@ -119,9 +126,16 @@
             <label class="form-check-label" for="exampleCheck1">Ik aanvaard de algemene voorwaarden</label>
         </div>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn-accent btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Verzenden
         </button>
+
+
+        <!--  ===============================                                               ========================                       -->
+        <!--  ===============================           MODAL BEVESTIGING FORMULIER         ========================                       -->
+        <!--  ===============================                                               ========================                       -->
+
+
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
             <div class="modal-dialog modal-dialog-centered">
@@ -131,11 +145,12 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Je bericht is verzonden!</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="text-modal modal-body">
                             We nemen zo snel mogelijk contact met je op.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">sluiten</button>
+                            <button type="button" class="btn-accent btn-primary" data-bs-dismiss="modal">sluiten
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -145,21 +160,118 @@
     </form>
 </div>
 
+
+<!--  ===============================                                        ========================                       -->
+<!--  ===============================           MAP CONTAINER                ========================                       -->
+<!--  ===============================                                        ========================                       -->
+
 <section>
-    <h2 class="h2-map">Waar kan je ons vinden?</h2>
-    <div class="map-container ratio ratio-16x9">
+    <div class="map-div">
+        <h2 class="h2-map mb-4">Waar kan je ons vinden?</h2>
 
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d625.5987827172479!2d4.989324476150123!3d51.15650443481375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c1495ff36e538d%3A0xe702e3d10b0f8815!2sFehrenbachstraat%2021%2C%202440%20Geel!5e0!3m2!1spt-BR!2sbe!4v1778282509273!5m2!1spt-BR!2sbe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="row align-items-center">
 
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="map-container ratio ratio-4x3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.183310819522!2d4.986673569584643!3d51.16212471363807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c14be7308d914f%3A0x9c06db7cf149fd39!2sStationsstraat%201%2C%202440%20Geel!5e1!3m2!1spt-BR!2sbe!4v1778337985296!5m2!1spt-BR!2sbe"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <p class=" info-adres-opening fs-5">
+                    <strong>Adres:</strong> <br>
+                    IronClad Fitness Geel <br>
+                    Stationsstraat 1 <br>
+                    2440 Geel <br>
+                    <br>
+                    <strong>Openingsuren:</strong> <br>
+                    Maandag - Vrijdag: 06:00 - 22:00 <br>
+                    Zaterdag - zondag: 08:00 - 20:00 <br>
+                </p>
+            </div>
+
+        </div>
     </div>
 </section>
 
+<!--  ===============================                                        ========================                       -->
+<!--  ===============================           ACCORDION FAQ                ========================                       -->
+<!--  ===============================                                        ========================                       -->
+
+
+<div class="accordion-container my-5">
+
+    <h2>FAQ</h2>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Kan ik ergens parkeren?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Ja!</strong> We hebben een ruime privé parking achter het gebouw aan de Stationsstraat,
+                    speciaal en gratis voor al onze Ironclad-leden. Vergeet niet je lidkaart te scannen bij de slagboom.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Kan ik een keer gratis komen proefdraaien?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Absoluut.</strong> Via het contactformulier hierboven kun je eenvoudig een gratis proefles
+                    aanvragen. Eén van onze trainers leidt je rond en helpt je op weg.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Wat ben ik verplicht om mee te nemen?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Voor de hygiëne is een schone handdoek verplicht op alle apparaten. Daarnaast vragen we je
+                    om propere binnensportschoenen te dragen (geen buitenschoenen) en een drinkbus mee te nemen.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Hebben jullie douches en kluisjes?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Zeker.</strong>
+                    Onze kleedkamers zijn voorzien van ruime, gratis douches. De lockers kun je veilig afsluiten; neem
+                    wel je eigen hangslotje mee (of koop er eentje aan de balie).
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 <footer>
     <p>© 2026 — Fictieve website voor een schoolopdracht</p>
-    <p>Gemaakt door Group L — <a href="https://www.thomasmore.be">Thomas More</a></p>
+    <p>Deze pagina gemaakt door Rene Van Asch — <a href="https://www.thomasmore.be">Thomas More</a></p>
 </footer>
 
 <!-- Bootstrap JS -->
@@ -167,5 +279,4 @@
 
 </body>
 
-</body>
 </html>
