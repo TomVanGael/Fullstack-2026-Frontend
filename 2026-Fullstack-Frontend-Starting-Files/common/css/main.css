@@ -195,11 +195,17 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
+.team-grid p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    opacity: 10.9;
+}
+
 /* -------------------------------
    TEAM CARDS — Modern Metal Plate
 -------------------------------- */
 .team-card {
-    background: linear-gradient(160deg, #111, #0a0a0a);
+    background: rgba(255,255,255,0.05);
     border: 2px solid var(--color-accent);
     padding: 2rem 1.5rem;
     border-radius: var(--radius);
