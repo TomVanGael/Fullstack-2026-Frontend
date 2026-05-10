@@ -1,0 +1,83 @@
+/*
+Student 3: Keany Vanhauwaert (R0740423)
+Industriele look met paars, geel en zwart
+*/
+
+@import url("2026-Fullstack-Frontend-Starting-Files/common/css/main.css");
+
+
+/*NAVBAR*/
+.nav-link.active{
+    color: var(--color-accent) !important;
+    text-shadow: 0 0 6px var(--color-accent-alt);
+}
+
+
+
+/*MAIN*/
+.membership-title {
+    text-align: center;
+}
+
+.membership-description {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.membership-wrapper {
+    border: 2px solid var(--color-accent);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 0 20px var(--color-accent-alt);
+    
+
+}
+
+.membership-formule{
+    font-size: 1.6rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.membership-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.membership-wrapper ul li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+
+}
+.membership-wrapper ul li:before {
+    content: '✓';
+}
+
+.membership-price {
+    color: var(--color-accent);
+    text-shadow: 0 0 1.5rem var(--color-accent-alt);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.membership-price span {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+@media (min-width: 700px) {
+    .membership-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
