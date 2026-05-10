@@ -1,7 +1,9 @@
-/* ================================
-   STUDENT 1 — Voeding & Lifestyle
-   Industrial Neon 2.0 Accent Variant
-================================ */
+/* ==========================================================
+   STUDENT 1 — Name: Van Gael Tom
+    Class: 1WT Toegepaste Informatica
+    R-number: r1114549
+ Voeding & Lifestyle - Industrial Neon 2.0 Accent Variant
+============================================================= */
 
 /* -------------------------------
    STUDENT 1 ACCENT COLORS
@@ -29,6 +31,10 @@
 /* -------------------------------
    HERO — Student 1 Variant
 -------------------------------- */
+.hero_wrapper {
+    padding: 1.5rem;
+}
+
 .hero.student1-hero {
     padding: 6rem 1.5rem 4rem;
     background: linear-gradient(
@@ -134,8 +140,8 @@
 
 .tip-card:hover {
     transform: translateY(-6px);
-    border-color: var(--accent-s1);
-    box-shadow: 0 0 12px var(--accent-s1);
+    border-color: var(--s1-accent);
+    box-shadow: 0 0 12px var(--s1-accent);
 }
 
 .tip-icon {
