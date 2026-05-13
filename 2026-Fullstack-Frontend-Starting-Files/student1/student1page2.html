@@ -110,16 +110,6 @@
                                 <label for="coachSelect" class="form-label">Selecteer een coach</label>
                                 <select id="coachSelect" class="form-select">
                                     <option value="">-- Kies een coach --</option>
-                                    <option value="1">🥗 Lena Vermeulen — Holistische voeding & energiebalans</option>
-                                    <option value="2">🧘 Milan De Smet — Mindful eten & stressreductie</option>
-                                    <option value="3">🌿 Sofie Peeters — Gezonde gewoontes & lifestyle coaching</option>
-                                    <option value="4">💪 Arno Vandenberghe — Sportvoeding & dagelijkse vitaliteit</option>
-                                    <option value="5">🍃 Jade Claes — Plant-based voeding & hormonale balans</option>
-                                    <option value="6">💧 Ruben Maes — Hydratatie, herstel & slaapoptimalisatie</option>
-                                    <option value="7">🧠 Elise Willems — Mindset coaching & gezonde routines</option>
-                                    <option value="8">📦 Noah De Ridder — Voedingsplanning & meal-prep strategieën</option>
-                                    <option value="9">🌸 Tara Goossens — Lifestyle balans & stressvrij leven</option>
-                                    <option value="10">🔥 Finn Janssens — Actieve leefstijl & gezonde motivatie</option>
                                 </select>
                             </div>
 
@@ -190,50 +180,16 @@
     </div>
 </main>
 
-
 <footer>
     <p>© 2026 — Fictieve website voor een schoolopdracht</p>
     <p>Gemaakt door Group L — <a href="https://www.thomasmore.be">Thomas More</a></p>
 </footer>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!--Javascript voor de coach-cards-->
-<script>
-    async function loadFourCoaches() {
-        const response = await fetch("http://localhost:8000/four_random_coaches");
-        const data = await response.json();
-        /** @type {{icon:string, naam:string, voornaam:string, specialisatie:string}[]} */
-        const coaches = data.coaches;
-
-
-        // Coach 1
-        document.getElementById("coach1-icon").textContent = coaches[0].icon;
-        document.getElementById("coach1-voornaam").textContent = coaches[0].voornaam;
-        document.getElementById("coach1-naam").textContent = coaches[0].naam;
-        document.getElementById("coach1-specialisatie").textContent = coaches[0].specialisatie;
-
-        // Coach 2
-        document.getElementById("coach2-icon").textContent = coaches[1].icon;
-        document.getElementById("coach2-voornaam").textContent = coaches[1].voornaam;
-        document.getElementById("coach2-naam").textContent = coaches[1].naam;
-        document.getElementById("coach2-specialisatie").textContent = coaches[1].specialisatie;
-
-        // Coach 3
-        document.getElementById("coach3-icon").textContent = coaches[2].icon;
-        document.getElementById("coach3-voornaam").textContent = coaches[2].voornaam;
-        document.getElementById("coach3-naam").textContent = coaches[2].naam;
-        document.getElementById("coach3-specialisatie").textContent = coaches[2].specialisatie;
-
-        // Coach 4
-        document.getElementById("coach4-icon").textContent = coaches[3].icon;
-        document.getElementById("coach4-voornaam").textContent = coaches[3].voornaam;
-        document.getElementById("coach4-naam").textContent = coaches[3].naam;
-        document.getElementById("coach4-specialisatie").textContent = coaches[3].specialisatie;
-    }
-
-    loadFourCoaches();
-</script>
+<!-- Eigen script -->
+<script src="js/student1.js"></script>
 
 </body>
 </html>
