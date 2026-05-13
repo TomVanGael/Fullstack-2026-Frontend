@@ -148,6 +148,12 @@
         opacity: 80%;
     }
 
+    tr:nth-child(odd) {
+        background-color: var(--s4-accent-dark);
+        background-blend-mode: multiply;
+        opacity: 80%;
+    }
+
     caption-side: bottom;
     caption {
         color: var(--s4-accent-dark);
