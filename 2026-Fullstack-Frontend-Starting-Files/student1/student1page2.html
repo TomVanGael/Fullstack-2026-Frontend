@@ -1,0 +1,239 @@
+<!doctype html>
+<!-- Name: Van Gael Tom
+    Class: 1WT Toegepaste Informatica
+    R-number: r1114549
+-->
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/css/main.css">
+    <link rel="stylesheet" href="css/student1.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+
+    <title>Lifestyle Coaching</title>
+</head>
+
+<body class="student1-page">
+
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-inner container">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
+                <img src="../common/assets/logo-navbar-neon.webp" alt="Logo" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="student1page1.html">Voeding & Lifestyle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Contacteer Ons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student3/student3page1.html">Abonnementen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student4/student4page1.html">Focus & Drukte</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hero_wrapper">
+    <section class="hero student1-hero">
+        <h1>Onze Coaches<br>Uw Start</h1>
+        <p>Een energiek leven begint bij slimme keuzes. Ontdek hoe voeding, beweging en mindset elkaar versterken.</p>
+        <a href="#content" class="btn-s1">Vind uw coach</a>
+    </section>
+</div>
+
+<main id="content" class="mt-5">
+
+    <div class="container">
+        <!-- DYNAMIC INFO CARDS -->
+        <section class="s1-section text-center mb-5">
+            <h2 class="mb-4">Onze coaches voor een gezonde lifestyle</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="icon">🥗</div>
+                        <h3>Voeding</h3>
+                        <p>Kies voor natuurlijke, onbewerkte producten die je lichaam voeden en energie geven.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="icon">💪</div>
+                        <h3>Beweging</h3>
+                        <p>Dagelijkse activiteit verbetert je uithouding, kracht en mentale gezondheid.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="icon">🧠</div>
+                        <h3>Mindset</h3>
+                        <p>Rust, slaap en stressmanagement zijn essentieel voor duurzame vooruitgang.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="page-lower-bg">
+        <div class="container">
+            <!-- CONTENT BLOCK 1 -->
+            <!-- CONTENT BLOCK 1 -->
+            <section class="s1-section">
+                <h2>Kies jouw Lifestyle Coach</h2>
+
+                <div class="row align-items-center">
+                    <!-- Tekst + Formulier -->
+                    <div class="col-md-6">
+                        <p>
+                            Selecteer een coach die past bij jouw doelen. Elke coach heeft een unieke specialisatie
+                            binnen voeding, lifestyle, mindset of energiebeheer.
+                        </p>
+
+                        <form class="coach-form">
+                            <div class="mb-3">
+                                <label for="coachSelect" class="form-label">Selecteer een coach</label>
+                                <select id="coachSelect" class="form-select">
+                                    <option value="">-- Kies een coach --</option>
+                                    <option value="1">🥗 Lena Vermeulen — Holistische voeding & energiebalans</option>
+                                    <option value="2">🧘 Milan De Smet — Mindful eten & stressreductie</option>
+                                    <option value="3">🌿 Sofie Peeters — Gezonde gewoontes & lifestyle coaching</option>
+                                    <option value="4">💪 Arno Vandenberghe — Sportvoeding & dagelijkse vitaliteit</option>
+                                    <option value="5">🍃 Jade Claes — Plant-based voeding & hormonale balans</option>
+                                    <option value="6">💧 Ruben Maes — Hydratatie, herstel & slaapoptimalisatie</option>
+                                    <option value="7">🧠 Elise Willems — Mindset coaching & gezonde routines</option>
+                                    <option value="8">📦 Noah De Ridder — Voedingsplanning & meal-prep strategieën</option>
+                                    <option value="9">🌸 Tara Goossens — Lifestyle balans & stressvrij leven</option>
+                                    <option value="10">🔥 Finn Janssens — Actieve leefstijl & gezonde motivatie</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-s1 mt-2">Coach selecteren</button>
+                        </form>
+                    </div>
+
+                    <!-- Afbeelding -->
+                    <div class="col-md-6">
+                        <img src="assets/GezondeVoeding.webp" class="img-fluid s1-img" alt="Gezonde voeding">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <div class="container">
+        <!-- EXTRA DYNAMIC CARDS -->
+        <section class="s1-section mt-5">
+            <h2 class="text-center mb-4">Onze Coaches</h2>
+
+            <div class="row g-4">
+                <!-- COACH 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="coach-card">
+                        <div id="coach1-icon" class="coach-icon">🥗</div>
+                        <h4 id="coach1-voornaam">Lena</h4>
+                        <h6 id="coach1-naam">Vermeulen</h6>
+                        <p id="coach1-specialisatie">Holistische voeding & energiebalans</p>
+                    </div>
+                </div>
+
+                <!-- COACH 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="coach-card">
+                        <div id="coach2-icon" class="coach-icon">🧘</div>
+                        <h4 id="coach2-voornaam">Milan</h4>
+                        <h6 id="coach2-naam">De Smet</h6>
+                        <p id="coach2-specialisatie">Mindful eten & stressreductie</p>
+                    </div>
+                </div>
+
+                <!-- COACH 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="coach-card">
+                        <div id="coach3-icon" class="coach-icon">🌿</div>
+                        <h4 id="coach3-voornaam">Sofie</h4>
+                        <h6 id="coach3-naam">Peeters</h6>
+                        <p id="coach3-specialisatie">Gezonde gewoontes & lifestyle coaching</p>
+                    </div>
+                </div>
+
+                <!-- COACH 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="coach-card">
+                        <div id="coach4-icon" class="coach-icon">💪</div>
+                        <h4 id="coach4-voornaam">Arno</h4>
+                        <h6 id="coach4-naam">Vandenberghe</h6>
+                        <p id="coach4-specialisatie">Sportvoeding & dagelijkse vitaliteit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center mt-5">
+            <a href="../index.html" class="btn-s1">Terug naar Home</a>
+        </div>
+    </div>
+</main>
+
+
+<footer>
+    <p>© 2026 — Fictieve website voor een schoolopdracht</p>
+    <p>Gemaakt door Group L — <a href="https://www.thomasmore.be">Thomas More</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Javascript voor de coach-cards-->
+<script>
+    async function loadFourCoaches() {
+        const response = await fetch("http://localhost:8000/four_random_coaches");
+        const data = await response.json();
+        /** @type {{icon:string, naam:string, voornaam:string, specialisatie:string}[]} */
+        const coaches = data.coaches;
+
+
+        // Coach 1
+        document.getElementById("coach1-icon").textContent = coaches[0].icon;
+        document.getElementById("coach1-voornaam").textContent = coaches[0].voornaam;
+        document.getElementById("coach1-naam").textContent = coaches[0].naam;
+        document.getElementById("coach1-specialisatie").textContent = coaches[0].specialisatie;
+
+        // Coach 2
+        document.getElementById("coach2-icon").textContent = coaches[1].icon;
+        document.getElementById("coach2-voornaam").textContent = coaches[1].voornaam;
+        document.getElementById("coach2-naam").textContent = coaches[1].naam;
+        document.getElementById("coach2-specialisatie").textContent = coaches[1].specialisatie;
+
+        // Coach 3
+        document.getElementById("coach3-icon").textContent = coaches[2].icon;
+        document.getElementById("coach3-voornaam").textContent = coaches[2].voornaam;
+        document.getElementById("coach3-naam").textContent = coaches[2].naam;
+        document.getElementById("coach3-specialisatie").textContent = coaches[2].specialisatie;
+
+        // Coach 4
+        document.getElementById("coach4-icon").textContent = coaches[3].icon;
+        document.getElementById("coach4-voornaam").textContent = coaches[3].voornaam;
+        document.getElementById("coach4-naam").textContent = coaches[3].naam;
+        document.getElementById("coach4-specialisatie").textContent = coaches[3].specialisatie;
+    }
+
+    loadFourCoaches();
+</script>
+
+</body>
+</html>
