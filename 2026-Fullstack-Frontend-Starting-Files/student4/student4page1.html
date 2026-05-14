@@ -1,8 +1,8 @@
 <!doctype html>
 <!-- Name: Mouws Eddy
-    Class: 1WT TOegepast
+    Class: 1WT Toegepaste Informatica
     R-number: R1118617
-     -->
+-->
 
 <html lang="nl">
     <head>
@@ -14,7 +14,7 @@
         <!-- CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../common/css/main.css">
-        <link rel="stylesheet" href="css/student4.css">
+<!--        <link rel="stylesheet" href="css/student4.css">-->
 
         <!--  Favicons  -->
         <link rel="icon" type="image/png" href="../common/assets/favicon-96x96.png" sizes="96x96" />
@@ -27,7 +27,7 @@
         <title>Ironcladd Fitness - Online druktemeter</title>
     </head>
 
-    <body class="student4-page">
+    <body class="student4-settings">
         <header>
             <div>
                 <nav class="navbar navbar-expand-lg">
@@ -65,7 +65,7 @@
             <div class="hero_wrapper">
                 <section class="hero">
                     <h1>Focus & Drukte</h1>
-                    <p>Een training kan alleen perfect zijn wanneer jij gefocussed kunt blijven. Bekijk deze video van onze trainer voor meer uitleg.</p>
+                    <p>Een training kan alleen perfect zijn wanneer jij gefocust kunt blijven. Bekijk deze video van onze trainer voor meer uitleg.</p>
                     <iframe src="https://share.synthesia.io/embeds/videos/5464067e-2666-47bd-b393-88788cb3e4f8" loading="lazy" title="Synthesia video player - Kom trainen bij Ironclad Fitness!" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;" style="border: none; padding: 0; margin: 0; overflow:hidden;"></iframe>
                 </section>
             </div>
@@ -82,69 +82,23 @@
                 The elements will be adjusted based on the data we receive from our API.
                 -->
 
-
-                <table class="table-busy">
+                <table class="table-busy" id="table-busy">
                     <caption style="text-align:right">Actuele drukte in de gym</caption>
                     <thead>
                     <tr>
                         <th>Groepsles</th>
                         <th>Drukte</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Gym</td>
-                        <td>
-                            <meter class="s4-bustle-meter" value="78" min="0" max="100" low="50" high="80" optimum="20" title="5min wachttijd"></meter>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Spinning</td>
-                        <td><meter class="s4-bustle-meter" value="11" min="0" max="30" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Aerobics</td>
-                        <td><meter class="s4-bustle-meter" value="49" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Steps</td>
-                        <td><meter class="s4-bustle-meter" value="51" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Body Attack</td>
-                        <td><meter class="s4-bustle-meter" value="85" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Zumba</td>
-                        <td><meter class="s4-bustle-meter" value="51" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Circuit training</td>
-                        <td><meter class="s4-bustle-meter" value="49" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>BBB</td>
-                        <td><meter class="s4-bustle-meter" value="11" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Yoga</td>
-                        <td><meter class="s4-bustle-meter" value="78" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>BodyBalance</td>
-                        <td><meter class="s4-bustle-meter" value="56" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
-                    <tr>
-                        <td>Kickboksen</td>
-                        <td><meter class="s4-bustle-meter" value="31" min="0" max="100" low="50" high="80" optimum="20" title=""></meter></td>
-                    </tr>
+
                     </tbody>
                 </table>
 
                 <a href="../index.html" class="btn-accent">Terug naar Home</a>
 
             </section>
-
         </main>
     </div>
     <footer>
@@ -153,6 +107,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/student4.js"></script>
 
     </body>
 </html>
