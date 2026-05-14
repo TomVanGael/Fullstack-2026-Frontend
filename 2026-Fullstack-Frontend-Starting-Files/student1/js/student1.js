@@ -75,7 +75,14 @@ async function loadCoaches() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", loadCoaches);
+document.addEventListener("DOMContentLoaded", () => {
+    loadCoaches();
+
+    // Datum in het verleden niet toegestaan
+    const vandaag = new Date().toISOString().split("T")[0];
+    document.getElementById("datum").setAttribute("min", vandaag);
+});
+
 
 // Form submit handler
 document.getElementById("afspraakForm").addEventListener("submit", async function (e) {
