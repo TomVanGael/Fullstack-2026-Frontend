@@ -8,11 +8,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../common/css/main.css">
     <link rel="stylesheet" href="css/student1.css">
 
-    <title>Voeding & Lifestyle — Student 1</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+
+    <title>Voeding & Lifestyle</title>
 </head>
 
 <body class="student1-page">
@@ -30,10 +38,10 @@
 
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="student1page1.html">Student 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Student 2</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../student3/student3page1.html">Student 3</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../student4/student4page1.html">Student 4</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="student1page1.html">Voeding & Lifestyle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Contacteer Ons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student3/student3page1.html">Abonnementen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student4/student4page1.html">Focus & Drukte</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +52,7 @@
     <section class="hero student1-hero">
         <h1>Voeding & Lifestyle</h1>
         <p>Een energiek leven begint bij slimme keuzes. Ontdek hoe voeding, beweging en mindset elkaar versterken.</p>
-        <a href="#content" class="btn-s1">Ontdek meer</a>
+        <a href="student1page2.html" class="btn-s1">Geïnteresseerd in LifeStyle Coaching?</a>
     </section>
 </div>
 
@@ -183,44 +191,16 @@
         </div>
     </main>
 
-
 <footer>
     <p>© 2026 — Fictieve website voor een schoolopdracht</p>
     <p>Gemaakt door Group L — <a href="https://www.thomasmore.be">Thomas More</a></p>
 </footer>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!--Javascript voor de tipcards-->
-<script>
-    async function loadFourTips() {
-        const response = await fetch("http://localhost:8000/four_random_tips");
-        const data = await response.json();
-        const tips = data.tips;
-
-        // Tip 1
-        document.getElementById("tip1-icon").textContent = tips[0].icon;
-        document.getElementById("tip1-title").textContent = tips[0].title;
-        document.getElementById("tip1-description").textContent = tips[0].description;
-
-        // Tip 2
-        document.getElementById("tip2-icon").textContent = tips[1].icon;
-        document.getElementById("tip2-title").textContent = tips[1].title;
-        document.getElementById("tip2-description").textContent = tips[1].description;
-
-        // Tip 3
-        document.getElementById("tip3-icon").textContent = tips[2].icon;
-        document.getElementById("tip3-title").textContent = tips[2].title;
-        document.getElementById("tip3-description").textContent = tips[2].description;
-
-        // Tip 4
-        document.getElementById("tip4-icon").textContent = tips[3].icon;
-        document.getElementById("tip4-title").textContent = tips[3].title;
-        document.getElementById("tip4-description").textContent = tips[3].description;
-    }
-
-    loadFourTips();
-</script>
+<!-- Eigen script -->
+<script src="js/student1.js"></script>
 
 </body>
 </html>

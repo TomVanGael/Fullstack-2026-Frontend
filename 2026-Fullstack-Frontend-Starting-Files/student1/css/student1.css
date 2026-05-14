@@ -36,7 +36,7 @@
 }
 
 .hero.student1-hero {
-    padding: 6rem 1.5rem 4rem;
+    padding: 2rem;
     background: linear-gradient(
             135deg,
             rgba(0,0,0,0.85) 40%,
@@ -127,7 +127,7 @@
     0 0 18px var(--s1-accent);
 }
 
-.tip-card {
+.tip-card, .coach-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 25px;
@@ -138,24 +138,30 @@
     height: 100%;
 }
 
-.tip-card:hover {
+.tip-card:hover , .coach-card:hover {
     transform: translateY(-6px);
     border-color: var(--s1-accent);
     box-shadow: 0 0 12px var(--s1-accent);
 }
 
-.tip-icon {
+.tip-icon, .coach-icon {
     font-size: 2.4rem;
     margin-bottom: 10px;
 }
 
-.tip-card h4 {
+.tip-card h4, .coach-card h4 {
     margin-bottom: 8px;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-.tip-card p {
+.coach-card h6 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.tip-card p, .coach-card p {
     font-size: 0.95rem;
     opacity: 0.9;
 }
@@ -198,6 +204,37 @@ body.student1-page {
     height: 120px;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
     pointer-events: none;
+}
+
+/* popup opmaak */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+}
+
+.popup-content {
+    background: rgba(66, 65, 65, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative; /* <-- BELANGRIJK */
+    z-index: 9999; /* <-- BELANGRIJK */
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 /* -------------------------------
