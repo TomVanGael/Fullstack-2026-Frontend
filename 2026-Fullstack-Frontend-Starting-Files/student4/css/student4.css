@@ -236,14 +236,18 @@
     }
 
     .student4-settings .text-overlay {
-        margin-top: 225px;
+        margin-top: 145px;
     }
 
     .student4-settings .navbar-toggler {
         position: absolute;
     }
-}
 
+    .student4-settings .navbar-brand img {
+        height: 150px;
+        margin-left: 30px;
+    }
+}
 
 @media only screen and (min-width: 769px) {
     .student4-settings .hero_wrapper_mobile {
