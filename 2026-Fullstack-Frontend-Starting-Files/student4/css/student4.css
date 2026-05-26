@@ -72,7 +72,7 @@
 .student4-settings .text-overlay {
     display: flex;
     z-index: 4;
-    margin-top: 185px;
+    margin-top: 190px;
     margin-bottom: 100px;
 }
 
@@ -120,6 +120,13 @@
     opacity: 50%;
     z-index: -1;
 }
+
+/* -------------------------------
+   Small menu other color for better visibility
+--------------------------------  */
+.navbar-toggler {
+     background-color: var(--s4-accent);
+ }
 
 /* -------------------------------
    TABLE css
@@ -215,3 +222,39 @@
     background: linear-gradient(to right, var(--s4-meter-lightred), var(--s4-meter-darkred));
 }
 
+/* -------------------------------
+   RESPONSIVE TWEAKS
+   * No hero-wrapper around movie
+   * Move menu-item to left instead of right and make it absolute positioned (so it does not move when scrolling)
+   -------------------------------- */
+@media only screen and (max-width: 768px) {
+    .student4-settings .hero_wrapper {
+        display: none;
+    }
+    .student4-settings .hero_wrapper_mobile {
+        display: block;
+    }
+
+    .student4-settings .text-overlay {
+        margin-top: 225px;
+    }
+
+    .student4-settings .navbar-toggler {
+        position: absolute;
+    }
+}
+
+
+@media only screen and (min-width: 769px) {
+    .student4-settings .hero_wrapper_mobile {
+        display: none;
+    }
+
+    .student4-settings .hero_wrapper {
+        display: block;
+    }
+
+    .student4-settings .text-overlay {
+        margin-top: 190px;
+    }
+}
