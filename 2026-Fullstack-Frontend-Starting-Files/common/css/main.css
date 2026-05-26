@@ -132,6 +132,27 @@ h1, h2, h3, h4 {
     z-index: 2;
 }
 
+/* ================================
+   NAVBAR TOGGLER — Neon Accent
+================================ */
+.navbar-toggler {
+    border: 2px solid var(--color-accent); /* paarse rand */
+    border-radius: 6px;
+    padding: 6px;
+    transition: var(--transition);
+}
+
+.navbar-toggler:hover {
+    border-color: var(--color-accent-dark);
+    box-shadow: 0 0 12px var(--color-accent);
+}
+
+/* Toggler icon in neon paars */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23C763F2' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
 /* -------------------------------
    BUTTONS — Modern Rounded
 -------------------------------- */
@@ -342,5 +363,45 @@ footer a {
     }
     20%, 24%, 55% {
         opacity: 0.3;
+    }
+}
+
+/* -------------------------------
+   Mobile First navbar
+-------------------------------- */
+@media (max-width: 576px) {
+    .navbar-brand img {
+        height: 80px;
+        margin-left: 0;
+    }
+
+    .navbar {
+        padding: 0.4rem 1rem;
+    }
+
+    /* -------------------------------
+        Mobile First hero
+      -------------------------------- */
+    .hero_wrapper {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* -------------------------------
+        Mobile First cards
+      -------------------------------- */
+    .team-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .team-grid {
+        gap: 1.2rem;
     }
 }
