@@ -222,12 +222,87 @@
     background: linear-gradient(to right, var(--s4-meter-lightred), var(--s4-meter-darkred));
 }
 
+/* --------------------------------
+   Contaijner for the movie in case hero-frame is not shown (smaller screens)
+   but we use this container instead to center the movie
+--------------------------------- */
+.movie-container {
+    display: grid;
+    place-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
 /* -------------------------------
    RESPONSIVE TWEAKS
    * No hero-wrapper around movie
    * Move menu-item to left instead of right and make it absolute positioned (so it does not move when scrolling)
    -------------------------------- */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
+    /* Created separate settings for small sized screens to prevent the logo and menu are placed on top of each other
+    */
+    .student4-settings {
+        .hero_wrapper {
+            display: none;
+        }
+        .hero_wrapper_mobile {
+            display: block;
+        }
+        .text-overlay {
+            margin-top: 90px;
+        }
+        .navbar-toggler {
+            position: fixed;
+            left: 30px;
+            top: 45px;
+        }
+        .navbar-toggler-icon {
+            height: 1em;
+            width: 1em;
+        }
+        .logo {
+            height: 90px;
+            position: fixed;
+            left: 60px;
+            top: 20px;
+        }
+    }
+
+    /*.student4-settings .hero_wrapper {*/
+    /*    display: none;*/
+    /*}*/
+    /*.student4-settings .hero_wrapper_mobile {*/
+    /*    display: block;*/
+    /*}*/
+
+    /*.student4-settings .text-overlay {*/
+    /*    margin-top: 90px;*/
+    /*}*/
+
+    /*.student4-settings .navbar-toggler {*/
+    /*    position: fixed;*/
+    /*    left: 30px;*/
+    /*    top: 45px;*/
+    /*}*/
+
+    /*.student4-settings .navbar-toggler-icon {*/
+    /*    height: 1em;*/
+    /*    width: 1em;*/
+
+    /*}*/
+
+    /*.student4-settings .logo {*/
+    /*    height: 90px;*/
+    /*    position: fixed;*/
+    /*    left: 60px;*/
+    /*    top: 20px;*/
+    /*}*/
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
     .student4-settings .hero_wrapper {
         display: none;
     }
@@ -244,7 +319,6 @@
     }
 }
 
-
 @media only screen and (min-width: 769px) {
     .student4-settings .hero_wrapper_mobile {
         display: none;
@@ -256,5 +330,6 @@
 
     .student4-settings .text-overlay {
         margin-top: 190px;
+
     }
 }
