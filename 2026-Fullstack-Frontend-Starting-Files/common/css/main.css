@@ -1,6 +1,11 @@
 @import "bootstrap.min.css";
 @import "global_vars.css";
+
+/*persoonlijke stylesheet imports*/
+
+@import "../../student3/css/student3.css";
 @import "../../student4/css/student4.css";
+
 
 /* ================================
    MAIN.CSS — Industrial Neon 2.0
