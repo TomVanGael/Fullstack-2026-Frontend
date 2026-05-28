@@ -254,52 +254,11 @@
         .text-overlay {
             margin-top: 90px;
         }
-        .navbar-toggler {
-            position: fixed;
-            left: 30px;
-            top: 45px;
-        }
         .navbar-toggler-icon {
             height: 1em;
             width: 1em;
         }
-        .logo {
-            height: 90px;
-            position: fixed;
-            left: 60px;
-            top: 20px;
-        }
     }
-
-    /*.student4-settings .hero_wrapper {*/
-    /*    display: none;*/
-    /*}*/
-    /*.student4-settings .hero_wrapper_mobile {*/
-    /*    display: block;*/
-    /*}*/
-
-    /*.student4-settings .text-overlay {*/
-    /*    margin-top: 90px;*/
-    /*}*/
-
-    /*.student4-settings .navbar-toggler {*/
-    /*    position: fixed;*/
-    /*    left: 30px;*/
-    /*    top: 45px;*/
-    /*}*/
-
-    /*.student4-settings .navbar-toggler-icon {*/
-    /*    height: 1em;*/
-    /*    width: 1em;*/
-
-    /*}*/
-
-    /*.student4-settings .logo {*/
-    /*    height: 90px;*/
-    /*    position: fixed;*/
-    /*    left: 60px;*/
-    /*    top: 20px;*/
-    /*}*/
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
@@ -312,15 +271,6 @@
 
     .student4-settings .text-overlay {
         margin-top: 145px;
-    }
-
-    .student4-settings .navbar-toggler {
-        position: absolute;
-    }
-
-    .student4-settings .navbar-brand img {
-        height: 150px;
-        margin-left: 30px;
     }
 }
 
