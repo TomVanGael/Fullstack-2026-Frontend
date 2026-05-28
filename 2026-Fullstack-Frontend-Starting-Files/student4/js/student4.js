@@ -16,7 +16,7 @@ function increaseAttendants(attendantsId, actualAttendants, maxAttendants) {
     now = new Date();
     lessonDate = now.getFullYear() + "-" + formatTime(now.getMonth() + 1) + "-" + formatTime(now.getDate());
 
-    fetch("http://localhost:8000/post/update_attendants", {
+    fetch("http://localhost:8000/update_attendants", {
         method: 'POST', body: JSON.stringify({
             attendantsId: attendantsId,
             planningId: 0,  // this is not used in the backend, but we need to send it to match the expected body of the request
@@ -63,7 +63,7 @@ async function updateLessons() {
     console.log("Current Time: " + time);
 
     // Call the API to retrieve data from database
-    const response =  await fetch("http://localhost:8000/get/actual_lessons?weekday=" + weekDay + "&time=" + time);
+    const response =  await fetch("http://localhost:8000/actual_lessons?weekday=" + weekDay + "&time=" + time);
     const data  =   await response.json()
     actualLessons = data.lessons;
 
@@ -93,7 +93,7 @@ async function updateLessons() {
         // Get actual attendants for a lesson and calculate the percentage of max attendants to show in the meter
         lessonDate = now.getFullYear() + "-" + formatTime(now.getMonth() + 1) + "-" + formatTime(now.getDate());
         console.log("LessonDate: " + lessonDate);
-        const response = await fetch("http://localhost:8000/get/actual_attendants?planningId=" + lesson[6] + "&lessonDate=" + lessonDate);
+        const response = await fetch("http://localhost:8000/actual_attendants?planningId=" + lesson[6] + "&lessonDate=" + lessonDate);
         const data = await response.json();
         attendantInformation = data.attendants[0];
 
