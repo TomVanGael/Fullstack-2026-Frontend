@@ -32,9 +32,6 @@ jobs:
         with:
           NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
           NETLIFY_DEPLOY_TO_PROD: true
-<<<<<<< HEAD
           build_directory: .
           build_command: ""
           install_command: ""
-=======
->>>>>>> 645d312af404d4c395fa166ba1d67a33b40ab013
