@@ -34,4 +34,4 @@ jobs:
           NETLIFY_DEPLOY_TO_PROD: true
           build_directory: .
           build_command: ""
-          install_command: ""
+          install_command: "" # fixed comment
