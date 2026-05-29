@@ -7,11 +7,12 @@ on:
   push:
     branches:
       - main
+      - tom-gegevens2
 
 
 jobs:
   if_merged:
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -28,13 +29,20 @@ jobs:
           echo "Token length: ${{ secrets.NETLIFY_AUTH_TOKEN }}"
           echo "Site ID length: ${{ secrets.NETLIFY_SITE_ID }}"
 
-      - name: Deploy to Netlify
-        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+      - name: Deploy site
+        uses: lwojcik/github-action-deploy-static-site@v1
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
-          NETLIFY_DEPLOY_TO_PROD: true
-          build_directory: ./Fullstack-2026-Frontend
-          build_command: ""
-          install_command: ""
+          platform: netlify
+          netlify_deploy_hook_url: ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
+
+#      - name: Deploy to Netlify
+#        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+#        env:
+#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+#        with:
+#          NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
+#          NETLIFY_DEPLOY_TO_PROD: true
+#          build_directory: ./Fullstack-2026-Frontend
+#          build_command: ""
+#          install_command: ""
