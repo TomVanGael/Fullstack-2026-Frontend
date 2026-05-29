@@ -29,14 +29,20 @@ jobs:
           echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
           echo "Site ID length: ${#NETLIFY_SITE_ID}"
 
-      - name: Deploy to Netlify
-        uses: jsmrcaga/action-netlify-deploy@v2.0.0
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Deploy site
+        uses: lwojcik/github-action-deploy-static-site@v1
         with:
-          NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
-          NETLIFY_DEPLOY_TO_PROD: true
-          build_directory: ./Fullstack-2026-Frontend
-          build_command: ""
-          install_command: ""
+          platform: netlify
+          netlify_deploy_hook_url: ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
+
+#      - name: Deploy to Netlify
+#        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+#        env:
+#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+#        with:
+#          NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
+#          NETLIFY_DEPLOY_TO_PROD: true
+#          build_directory: ./Fullstack-2026-Frontend
+#          build_command: ""
+#          install_command: ""
