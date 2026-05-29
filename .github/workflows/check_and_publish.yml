@@ -26,8 +26,8 @@ jobs:
 
       - name: Debug env
         run: |
-          echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
-          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+          echo "Token length: ${{ secrets.NETLIFY_AUTH_TOKEN }}"
+          echo "Site ID length: ${{ secrets.NETLIFY_SITE_ID }}"
 
       - name: Deploy site
         uses: lwojcik/github-action-deploy-static-site@v1
