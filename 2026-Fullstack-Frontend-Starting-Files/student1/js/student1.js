@@ -5,7 +5,7 @@ if (page === "page1") {
     <!--Javascript voor de tipcards-->
     async function loadFourTips() {
         // const response = await fetch("http://localhost:8000/four_random_tips");
-        const response = await fetch("https://fullstack-2026-backend-vhdo.onrender.com/four_random_tips");
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/four_random_tips");
         const data = await response.json();
         const tips = data.tips;
 
@@ -37,7 +37,7 @@ if (page === "page2") {
     <!--Javascript voor de coachcards-->
     async function loadFourCoaches() {
         // const response = await fetch("http://localhost:8000/four_random_coaches");
-        const response = await fetch("https://fullstack-2026-backend-vhdo.onrender.com/four_random_coaches");
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/four_random_coaches");
         const data = await response.json();
         /** @type {{icon:string, naam:string, voornaam:string, specialisatie:string}[]} */
         const coaches = data.coaches;
@@ -73,7 +73,7 @@ if (page === "page2") {
     <!--Javascript voor de coachlist-->
     async function loadCoaches() {
         // const response = await fetch("http://localhost:8000/coach_list");
-        const response = await fetch("https://fullstack-2026-backend-vhdo.onrender.com/coach_list");
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/coach_list");
         const data = await response.json();
 
         const select = document.getElementById("coachSelect");
@@ -110,7 +110,7 @@ if (page === "page2") {
         }
 
         // const response = await fetch("http://localhost:8000/afspraak", {
-        const response = await fetch("https://fullstack-2026-backend-vhdo.onrender.com/afspraak", {
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraak", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -142,7 +142,7 @@ if (page === "page2") {
         const list = document.getElementById("afsprakenList");
 
         // const response = await fetch("http://localhost:8000/afspraken");
-        const response = await fetch("https://fullstack-2026-backend-vhdo.onrender.com/afspraken");
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraken");
         const data = await response.json();
 
         console.log("AFSPRAKEN API:", data.afspraken); // <--- DIT
@@ -172,7 +172,7 @@ if (page === "page2") {
         const list = document.getElementById("deleteList");
 
         // const response = await fetch("http://localhost:8000/afspraken");
-        const response = await fetch("https://fullstack-2026-backend-vhdo.onrender.com/afspraken");
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraken");
         const data = await response.json();
 
         list.innerHTML = "";
@@ -215,7 +215,7 @@ if (page === "page2") {
         const afspraakid = selected.value;
 
         // await fetch(`http://localhost:8000/afspraak/${afspraakid}`, {
-        await fetch(`https://fullstack-2026-backend-vhdo.onrender.com/afspraak/${afspraakid}`, {
+        await fetch(`https://devops-project-backend-zy1h.onrender.com/afspraak/${afspraakid}`, {
             method: "DELETE"
         });
 
