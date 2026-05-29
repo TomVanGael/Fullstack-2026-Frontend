@@ -93,7 +93,7 @@ async function updateLessons() {
         // Get actual attendants for a lesson and calculate the percentage of max attendants to show in the meter
         lessonDate = now.getFullYear() + "-" + formatTime(now.getMonth() + 1) + "-" + formatTime(now.getDate());
         console.log("LessonDate: " + lessonDate);
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/actual_attendants?planningId=" + lesson[6] + "&lessonDate=" + lessonDate);
+        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/actual_attendants?planningid=" + lesson[6] + "&lessondate=" + lessonDate);
         const data = await response.json();
         attendantInformation = data.attendants[0];
 
