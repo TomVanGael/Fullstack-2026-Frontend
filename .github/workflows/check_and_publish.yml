@@ -1,4 +1,4 @@
-name: Check and publish frontend
+name: Check, publish frontend
 
 on:
   pull_request:
