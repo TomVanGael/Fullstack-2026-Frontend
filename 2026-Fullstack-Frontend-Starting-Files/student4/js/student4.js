@@ -102,7 +102,7 @@ async function updateLessons() {
         console.log("Actual attendants: " + actualAttendants);
 
         // Meter is configured from 0 to 100; so we've to calculate the amount of people as a percentage of max attendants...
-        maxAttendants = lesson[1];  // this is 100% of the capacity
+        maxAttendants = lesson[2];  // this is 100% of the capacity
         percAttendants = (actualAttendants / maxAttendants) * 100;
         cell2.innerHTML = "<meter id='mtr-" + actualAttendantsId + "' class='s4-bustle-meter' value='" + percAttendants + "' min='0' max='100' low='50' high='80' optimum='20' title='" + actualAttendants + " van de maximaal " + maxAttendants + "'></meter>";
 
