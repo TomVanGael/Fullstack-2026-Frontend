@@ -19,6 +19,12 @@ jobs:
           root: ./
           css: false
 
+      - name: Debug env
+        run: |
+          echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
+          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+
+
       - name: Deploy to Netlify
         uses: jsmrcaga/action-netlify-deploy@v2.0.0
         env:
@@ -27,3 +33,6 @@ jobs:
         with:
           NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
           NETLIFY_DEPLOY_TO_PROD: true
+          build_directory: .
+          build_command: ""
+          install_command: ""
