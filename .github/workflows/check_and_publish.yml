@@ -1,9 +1,13 @@
 name: Check and publish frontend
 
 on:
-  pull_request:
-    types:
-      - closed
+#  pull_request:
+#    types:
+#      - closed
+  push:
+    branches:
+      - main
+
 
 jobs:
   if_merged:
@@ -34,4 +38,4 @@ jobs:
           NETLIFY_DEPLOY_TO_PROD: true
           build_directory: ./Fullstack-2026-Frontend
           build_command: ""
-          install_command: "" # fixed comment
+          install_command: ""
