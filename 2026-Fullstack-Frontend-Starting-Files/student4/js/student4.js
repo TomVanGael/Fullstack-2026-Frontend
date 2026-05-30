@@ -12,6 +12,7 @@ function debug(message) {
         console.log(message);
     }
 }
+
 function increaseAttendants(attendantsId, actualAttendants, maxAttendants) {
     debug("AttendantsId: " + attendantsId);
     debug("Actual attendants: " + actualAttendants);
@@ -38,8 +39,7 @@ function increaseAttendants(attendantsId, actualAttendants, maxAttendants) {
 
     // after updating database; refresh the meter in the row
     let meter = document.getElementById("mtr-" + attendantsId);
-    let percAttendants = (actualAttendants / maxAttendants) * 100;
-    meter.value = percAttendants;
+    meter.value = (actualAttendants / maxAttendants) * 100;
     meter.title = actualAttendants + " van de maximaal " + maxAttendants;
 
     // After updating; update the button as well, if the lesson is now full, disable the button and change text to "Volzet"
@@ -73,7 +73,7 @@ async function updateLessons() {
 
     // Call the API to retrieve data from database
     const response =  await fetch("https://devops-project-backend-zy1h.onrender.com/actual_lessons?weekday=" + weekDay + "&time=" + time);
-    const data  =   await response.json()
+    const data  = await response.json()
     let actualLessons = data.lessons;
 
     // Get the table element to add the lessons to
