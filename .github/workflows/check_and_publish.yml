@@ -35,6 +35,6 @@ jobs:
         with:
           NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
           NETLIFY_DEPLOY_TO_PROD: true
-          build_directory: ./Fullstack-2026-Frontend/2026-Fullstack-Frontend-Starting-Files
+          build_directory: ./2026-Fullstack-Frontend-Starting-Files
           build_command: ""
           install_command: ""
