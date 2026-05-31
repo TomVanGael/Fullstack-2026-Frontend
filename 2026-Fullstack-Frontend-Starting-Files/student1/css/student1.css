@@ -19,7 +19,7 @@
 -------------------------------- */
 .student1-page .navbar {
     border-bottom: 2px solid var(--s1-accent);
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(6px);
 }
 
