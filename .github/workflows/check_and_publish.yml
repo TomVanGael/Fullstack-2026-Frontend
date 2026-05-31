@@ -1,13 +1,11 @@
 name: Check and publish frontend
 
 on:
+  # To prevent poor‑quality code, we normally require at least one review in GitHub.
+  # For testing purposes, we have temporarily disabled this setting in GitHub.
     pull_request:
       types:
         - closed
-#  push:
-#    branches:
-#      - main
-
 
 jobs:
   if_merged:
@@ -23,10 +21,11 @@ jobs:
           root: ./
           css: false
 
-      - name: Debug env
-        run: |
-          echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
-          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+#      DEBUG part to check if credentials are filled or not by checking/showing the length of the variables
+#      - name: Debug env
+#        run: |
+#          echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
+#          echo "Site ID length: ${#NETLIFY_SITE_ID}"
 
       - name: Deploy to Netlify
         uses: jsmrcaga/action-netlify-deploy@v2.0.0
