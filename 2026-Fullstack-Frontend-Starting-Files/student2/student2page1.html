@@ -31,6 +31,7 @@
     <link rel="apple-touch-icon" sizes="180x180"
           href="/2026-Fullstack-Frontend-Starting-Files/common/assets/apple-touch-icon.png"/>
     <link rel="manifest" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/site.webmanifest"/>
+    <script src="./js/student2.js"></script>
 
 <body>
 
@@ -83,50 +84,50 @@
 <!--  ===============================                                        ========================                       -->
 
 <div class="form-container my-5">
-    <form action="https://it-fact.be/form.php" method="get">
+    <form id="contactForm" action="https://it-fact.be/form.php" method="get">
         <div class="titel-form">
             <h2>Contacteer ons</h2>
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Jouw naam*</label>
-            <input type="text" class="form-control" required type="text" id="naam" placeholder="Geef je naam"
-                   aria-describedby="emailHelp">
-
+            <label for="naam" class="form-label">Jouw naam*</label>
+            <input type="text" class="form-control" required id="naam" name="naam" placeholder="Geef je naam">
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Waarom neem je contact op?*</label>
-            <select class="form-select" required aria-label="Default select example">
-                <option selected>Kies een antwoord</option>
-                <option value="1">Vragen over lidmaatschap</option>
-                <option value="2">Abonnement wijzigen of opzeggen</option>
-                <option value="3">Personal Training</option>
-                <option value="4">Faciliteiten & Apparatuur</option>
-                <option value="5">Overig</option>
+            <label for="reason" class="form-label">Waarom neem je contact op?*</label>
+            <select class="form-select" required id="reason" name="form-select">
+                <option selected disabled>Kies een antwoord</option>
+                <option value="Vragen over lidmaatschap">Vragen over lidmaatschap</option>
+                <option value="Abonnement wijzigen of opzeggen">Abonnement wijzigen of opzeggen</option>
+                <option value="Personal Training">Personal Training</option>
+                <option value="Faciliteiten & Apparatuur">Faciliteiten & Apparatuur</option>
+                <option value="Overig">Overig</option>
             </select>
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" required type="email" id="exampleInputEmail1"
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" required name="email" id="email"
                    aria-describedby="emailHelp"
                    placeholder="Geef je mailadres">
             <div id="emailHelp" class="form-text">We delen je mail met niemand.</div>
         </div>
 
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" id="bericht" class="form-label">Bericht*</label>
-            <textarea class="form-control" required id="exampleFormControlTextarea1" placeholder="Geef je bericht in"
+            <label for="bericht" class="form-label">Bericht*</label>
+            <textarea name="bericht" class="form-control" required id="bericht"
+                      placeholder="Geef je bericht in"
                       rows="3"></textarea>
         </div>
 
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Ik aanvaard de algemene voorwaarden</label>
+            <input  type="checkbox" class="form-check-input" id="terms" name="terms-accepted" required>
+            <label class="form-check-label" for="terms">Ik aanvaard de algemene voorwaarden</label>
         </div>
 
-        <button type="button" class="btn-accent btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="submit" id="submitBtn" class="btn-accent btn-primary">
+            <!-- data-bs-toggle="modal" data-bs-target="#exampleModal"-->
             Verzenden
         </button>
 
