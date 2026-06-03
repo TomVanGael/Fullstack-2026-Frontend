@@ -1,0 +1,46 @@
+name: Check and publish frontend
+
+on:
+  # To prevent poor‑quality code, we normally require at least one review in GitHub.
+  # For testing purposes, we have temporarily disabled this setting in GitHub.
+    pull_request:
+      types:
+        - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Check HTML and CSS
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: ./
+          css: false
+
+#      DEBUG part to check if credentials are filled or not by checking/showing the length of the variables
+#      - name: Debug env
+#        run: |
+#          echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
+#          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+
+      - name: Deploy to Netlify
+        uses: lwojcik/github-action-deploy-static-site@v1
+        with:
+          platform: netlify
+          netlify_deploy_hook_url: ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
+
+        #      - name: Deploy to Netlify
+        #        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        #        env:
+        #          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        #          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        #        with:
+        #          NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
+        #          NETLIFY_DEPLOY_TO_PROD: true
+        #          build_directory: ./Fullstack-2026-Frontend
+        #          build_command: ""
+        #          install_command: ""
