@@ -4,34 +4,66 @@ const API_BASE_URL = 'https://devops-project-backend-zy1h.onrender.com';
 
 if (page === "page1") {
     <!--Javascript voor de tipcards-->
-    async function loadFourTips() {
-        // const response = await fetch("http://localhost:8000/four_random_tips");
-        const response = await fetch(`${API_BASE_URL}/four_random_tips`);
-        const data = await response.json();
-        const tips = data.tips;
-
-        // Tip 1
-        document.getElementById("tip1-icon").textContent = tips[0].icon;
-        document.getElementById("tip1-title").textContent = tips[0].title;
-        document.getElementById("tip1-description").textContent = tips[0].description;
-
-        // Tip 2
-        document.getElementById("tip2-icon").textContent = tips[1].icon;
-        document.getElementById("tip2-title").textContent = tips[1].title;
-        document.getElementById("tip2-description").textContent = tips[1].description;
-
-        // Tip 3
-        document.getElementById("tip3-icon").textContent = tips[2].icon;
-        document.getElementById("tip3-title").textContent = tips[2].title;
-        document.getElementById("tip3-description").textContent = tips[2].description;
-
-        // Tip 4
-        document.getElementById("tip4-icon").textContent = tips[3].icon;
-        document.getElementById("tip4-title").textContent = tips[3].title;
-        document.getElementById("tip4-description").textContent = tips[3].description;
+    // Helper to auto generate tips on student1page1
+    function renderTips(tips){
+        if (!tips || tips.length === 0) {
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <p class="text-secondary fs-5">No tips found.</p>
+                </div>
+            `;
+            return;
+        }
+        let result = "";
+        tips.forEach(tip => {
+            result += `
+                <div class="col-lg-3 col-md-6">
+                    <div class="tip-card">
+                        <div id="tip1-icon" class="tip-icon">${tip.icon}</div>
+                        <h4 id="tip1-title">${tip.title}</h4>
+                        <p id="tip1-description">${tip.description}</p>
+                    </div>
+                </div>
+            `;
+        });
+        return result;
     }
 
-    loadFourTips();
+    // 1. Fetch and render 4 tips on page load
+    function fetchAndRenderTips() {
+        const container = document.getElementById('tipsContainer');
+        if (!container) return;
+
+        // Show loading spinner
+        container.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-secondary">Loading tips...</p>
+            </div>
+        `;
+
+        fetch(`${API_BASE_URL}/four_random_tips`)
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error('Failed to fetch tips');
+                }
+            })
+            .then(data => {
+                container.innerHTML = renderTips(data.tips);
+            })
+            .catch(err => {
+                console.error('Error fetching list:', err);
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="alert alert-danger d-inline-block shadow-sm">
+                            <strong>⚠️ Connection Error:</strong> Failed to load tips. Please verify the backend is running.
+                        </div>
+                    </div>
+                `;
+            });
+    }
 }
 
 if (page === "page2") {
@@ -73,7 +105,7 @@ if (page === "page2") {
     <!--Javascript voor de coachlist-->
     async function loadCoaches() {
         // const response = await fetch("http://localhost:8000/coach_list");
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/coach_list");
+        const response = await fetch(`${API_BASE_URL}/coach_list`);
         const data = await response.json();
 
         const select = document.getElementById("coachSelect");
@@ -112,7 +144,7 @@ if (page === "page2") {
 
         //TODO CHECK  res
         // const response = await fetch("http://localhost:8000/afspraak", {
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraak", {
+        const response = await fetch(`${API_BASE_URL}/afspraak`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -144,7 +176,7 @@ if (page === "page2") {
         const list = document.getElementById("afsprakenList");
 
         // const response = await fetch("http://localhost:8000/afspraken");
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraken");
+        const response = await fetch(`${API_BASE_URL}/afspraken`);
         const data = await response.json();
 
         console.log("AFSPRAKEN API:", data.afspraken); // <--- DIT
@@ -174,7 +206,7 @@ if (page === "page2") {
         const list = document.getElementById("deleteList");
 
         // const response = await fetch("http://localhost:8000/afspraken");
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraken");
+        const response = await fetch(`${API_BASE_URL}/afspraken`);
         const data = await response.json();
 
         list.innerHTML = "";
@@ -217,7 +249,7 @@ if (page === "page2") {
         const afspraakid = selected.value;
 
         // await fetch(`http://localhost:8000/afspraak/${afspraakid}`, {
-        await fetch(`https://devops-project-backend-zy1h.onrender.com/afspraak/${afspraakid}`, {
+        await fetch(`${API_BASE_URL}/afspraak/${afspraakid}`, {
             method: "DELETE"
         });
 
@@ -246,3 +278,7 @@ if (page === "page2") {
         document.getElementById("coachImage").src = coachImages[currentIndex];
     }, 5000); // wisselt elke 5 seconden
 }
+
+
+// Initial list fetch
+fetchAndRenderTips();
