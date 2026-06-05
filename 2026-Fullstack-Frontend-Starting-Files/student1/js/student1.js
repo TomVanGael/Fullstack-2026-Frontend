@@ -1,11 +1,12 @@
 // Check welke pagina javascript nodig heeft
 const page = document.body.dataset.page;
+const API_BASE_URL = 'https://devops-project-backend-zy1h.onrender.com';
 
 if (page === "page1") {
     <!--Javascript voor de tipcards-->
     async function loadFourTips() {
         // const response = await fetch("http://localhost:8000/four_random_tips");
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/four_random_tips");
+        const response = await fetch(`${API_BASE_URL}/four_random_tips`);
         const data = await response.json();
         const tips = data.tips;
 
@@ -37,11 +38,10 @@ if (page === "page2") {
     <!--Javascript voor de coachcards-->
     async function loadFourCoaches() {
         // const response = await fetch("http://localhost:8000/four_random_coaches");
-        const response = await fetch("https://devops-project-backend-zy1h.onrender.com/four_random_coaches");
+        const response = await fetch(`${API_BASE_URL}/four_random_coaches`);
         const data = await response.json();
         /** @type {{icon:string, naam:string, voornaam:string, specialisatie:string}[]} */
         const coaches = data.coaches;
-
 
         // Coach 1
         document.getElementById("coach1-icon").textContent = coaches[0].icon;
@@ -109,6 +109,8 @@ if (page === "page2") {
             return;
         }
 
+
+        //TODO CHECK  res
         // const response = await fetch("http://localhost:8000/afspraak", {
         const response = await fetch("https://devops-project-backend-zy1h.onrender.com/afspraak", {
             method: "POST",
