@@ -132,21 +132,30 @@ if (page === "page2") {
                 `;
             });
     }
+
     // Javascript voor de coachlist
     async function loadCoaches() {
-        // const response = await fetch("http://localhost:8000/coach_list");
+        const select = document.getElementById("coachSelect");
+
+        // Spinner tonen
+        select.innerHTML = `
+        <option value="">⏳ Coaches laden...</option>
+    `;
+
         const response = await fetch(`${API_BASE_URL}/coach_list`);
         const data = await response.json();
 
-        const select = document.getElementById("coachSelect");
+        // Dropdown leegmaken en opnieuw vullen
+        select.innerHTML = `<option value="">-- Kies een coach --</option>`;
 
         data.coaches.forEach(coach => {
             const option = document.createElement("option");
             option.value = coach.CoachID;
-            option.textContent = `${coach.icon} ${coach.voornaam} - specialisatie: ${coach.specialisatie}`;
+            option.textContent = `${coach.icon} ${coach.voornaam} ${coach.naam} — ${coach.specialisatie}`;
             select.appendChild(option);
         });
     }
+
 
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -232,8 +241,6 @@ if (page === "page2") {
     document.getElementById("openDeletePopup").addEventListener("click", async () => {
         const popup = document.getElementById("deletePopup");
         const list = document.getElementById("deleteList");
-
-        // const response = await fetch("http://localhost:8000/afspraken");
         const response = await fetch(`${API_BASE_URL}/afspraken`);
         const data = await response.json();
 
