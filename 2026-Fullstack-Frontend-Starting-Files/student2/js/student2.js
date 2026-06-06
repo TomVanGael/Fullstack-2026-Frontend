@@ -1,3 +1,9 @@
+//     Name: Rene
+//     Class: Van Asch
+//     R-number: r1089588
+//     branch dat ik werk: rene-contactpagina
+//
+
 const formulier = document.getElementById("contactForm");
 const submitButton = document.getElementById("submitBtn");
 
@@ -5,8 +11,8 @@ formulier.addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Verander de tekst van de submit-knop en disable deze tijdelijk
-    const btnHTML = submitButton.innerHTML;
-    submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Laden...';
+    const btnHTML = submitButton.innerHTML;`
+    submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Laden...';`
     submitButton.disabled = true;
 
     // Dataverwerking
@@ -28,8 +34,8 @@ formulier.addEventListener("submit", function (event) {
     })
         .then(response => {
             if (!response.ok) {
-                // Als de server een errorstatus teruggeeft, toon de error
-                throw new Error("Er zijn problemen met de server: " + response.status);
+                // Als de server een error status teruggeeft, toon de error
+                throw new Error("⚠️ Er zijn problemen met de server: " + response.status);
             }
             return response.json();
         })
@@ -45,7 +51,7 @@ formulier.addEventListener("submit", function (event) {
         })
         .catch(error => {
             console.error("Fout bij het verzenden van het formulier:", error);
-            alert("Er is een fout opgetreden bij het verzenden van het formulier. Probeer het opnieuw.")
+            alert("⚠️ Er is een fout opgetreden bij het verzenden van het formulier. Probeer het opnieuw.")
         })
         .finally(() => {
             // Foutafhandeling => resetten
@@ -54,4 +60,49 @@ formulier.addEventListener("submit", function (event) {
         });
 
 });
+
+const loadFaq = () => {
+    const faqContainer = document.getElementById("faqContainer");
+    const apiUrl = "http://127.0.0.1:8000/faq";
+
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                // Als de server een error status teruggeeft, toon de error
+                throw new Error("⚠️ Er zijn problemen met de server: " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("FAQ data:", data);
+            faqContainer.innerHTML = "";
+            data.forEach((item, index) => {
+                const isFirst = index === 0;
+
+                faqContainer.innerHTML += `
+                <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button ${isFirst ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse${index}" aria-expanded="${isFirst ? 'true' : 'false'}" aria-controls="collapse${index}">
+                                ${item.question}
+                            </button>
+                        </h2>
+                        <div id="collapse${index}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}" data-bs-parent="#faqContainer">
+                            <div class="accordion-body">
+                                ${item.answer}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            })
+
+        })
+        .catch(error => {
+            console.error("Fout bij het laden van FAQ:", error);
+            faqContainer.innerHTML = "<p class='text-danger'>⚠️ Er is een fout opgetreden bij het laden van de FAQ. Probeer het later opnieuw.</p>";
+        });
+}
+
+loadFaq();
 
