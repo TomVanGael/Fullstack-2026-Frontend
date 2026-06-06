@@ -28,10 +28,11 @@
     top: 0;                /* Stick to the top of the viewport */
     left: 0;
     width: 100%;           /* Full width */
-    background-color: #000;
+    background: transparent;
     z-index: 4;         /* Ensure it stays above other content */
     color: var(--s4-accent-dark);
     text-shadow: 0 0 60px var(--s4-accent-dark);
+    backdrop-filter: none;
 }
 
 .student4-settings .nav-link.active {
@@ -134,7 +135,7 @@
 .table-busy {
     width: 90%;
     border-collapse: collapse;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     border: none;
 
     th, td {
@@ -236,6 +237,16 @@
 
 }
 
+/* Filter to recolor the exclamation-mark */
+.color-filter {
+    filter: invert(14%) sepia(86%) saturate(4708%) hue-rotate(278deg) brightness(101%) contrast(119%);
+}
+
+/* settings to give the spinner another color */
+.student4-settings .text-primary {
+    color: var(--s4-accent) !important;
+}
+
 /* -------------------------------
    RESPONSIVE TWEAKS
    * No hero-wrapper around movie
@@ -258,6 +269,23 @@
             height: 1em;
             width: 1em;
         }
+
+        .navbar {
+            backdrop-filter: blur(6px);
+        }
+
+        .text-danger {
+            color: var(--s4-accent);
+            text-shadow: 0 0 60px var(--s4-accent);
+            font-size: 1.0em;
+            text-align: center;
+            border: 2px solid var(--s4-accent-dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -272,6 +300,23 @@
     .student4-settings .text-overlay {
         margin-top: 145px;
     }
+
+    .student4-settings .text-danger {
+        color: var(--s4-accent);
+        text-shadow: 0 0 60px var(--s4-accent);
+        font-size: 1.2em;
+        text-align: center;
+        border: 2px solid var(--s4-accent-dark);
+        border-radius: 12px;
+        padding: 1.5rem;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .student4-settings .navbar {
+        backdrop-filter: blur(6px);
+    }
 }
 
 @media only screen and (min-width: 769px) {
@@ -285,6 +330,28 @@
 
     .student4-settings .text-overlay {
         margin-top: 190px;
+    }
 
+    .student4-settings .navbar {
+        backdrop: blur(6px);
+    }
+
+    .student4-settings .text-danger {
+        color: var(--s4-accent);
+        text-shadow: 0 0 60px var(--s4-accent);
+        font-size: 1.2em;
+        text-align: center;
+        border: 2px solid var(--s4-accent-dark);
+        border-radius: 12px;
+        padding: 0.5rem;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .student4-settings .navbar {
+        backdrop-filter: blur(6px);
     }
 }
