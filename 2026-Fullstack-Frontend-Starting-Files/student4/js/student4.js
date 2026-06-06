@@ -187,7 +187,7 @@ function parseLessons(lessons, table, spinner, errorMessage) {
                 outputDebugInfo("Error fetching data: " + err);
                 errorMessage.style.display = "block";
                 errorMessage.innerHTML = `
-                <div class="image-container"><img src="assets/exclamation.svg" width="50" height="50" class="color-filter"></div>
+                <div class="image-container"><img src="assets/exclamation.svg" width="50" height="50" class="color-filter" alt="error"></div>
                     <div id="error-text-container">
                         <p>
                             Er is een fout opgetreden bij het laden van de bezoekergegevens. Probeer het later opnieuw.
@@ -287,7 +287,7 @@ function updateLiveLessons() {
             errorMessage.style.display = "block";
             errorMessage.textContent = "Er is een fout opgetreden bij het laden van de gegevens. Probeer het later opnieuw.";
             errorMessage.innerHTML = `
-                <div class="image-container"><img src="assets/exclamation.svg" width="50" height="50" class="color-filter"></div>
+                <div class="image-container"><img src="assets/exclamation.svg" width="50" height="50" class="color-filter" alt="error"></div>
                     <div id="error-text-container">
                         <p>
                             Er is een fout opgetreden bij het laden van de gegevens. Probeer het later opnieuw.
