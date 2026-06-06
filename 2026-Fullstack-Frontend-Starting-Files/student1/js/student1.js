@@ -3,7 +3,7 @@ const page = document.body.dataset.page;
 const API_BASE_URL = 'https://devops-project-backend-zy1h.onrender.com';
 
 if (page === "page1") {
-    <!--Javascript voor de tipcards-->
+    // Javascript voor de tipcards
     // Helper to auto generate tips on student1page1
     function renderTips(tips){
         if (!tips || tips.length === 0) {
@@ -19,9 +19,9 @@ if (page === "page1") {
             result += `
                 <div class="col-lg-3 col-md-6">
                     <div class="tip-card">
-                        <div id="tip1-icon" class="tip-icon">${tip.icon}</div>
-                        <h4 id="tip1-title">${tip.title}</h4>
-                        <p id="tip1-description">${tip.description}</p>
+                        <div id="tip-icon" class="tip-icon">${tip.icon}</div>
+                        <h4 id="tip-title">${tip.title}</h4>
+                        <p id="tip-description">${tip.description}</p>
                     </div>
                 </div>
             `;
@@ -64,45 +64,75 @@ if (page === "page1") {
                 `;
             });
     }
+
+    // Initial list fetch
+    fetchAndRenderTips();
 }
 
 if (page === "page2") {
-    <!--Javascript voor de coachcards-->
-    async function loadFourCoaches() {
-        // const response = await fetch("http://localhost:8000/four_random_coaches");
-        const response = await fetch(`${API_BASE_URL}/four_random_coaches`);
-        const data = await response.json();
-        /** @type {{icon:string, naam:string, voornaam:string, specialisatie:string}[]} */
-        const coaches = data.coaches;
-
-        // Coach 1
-        document.getElementById("coach1-icon").textContent = coaches[0].icon;
-        document.getElementById("coach1-voornaam").textContent = coaches[0].voornaam;
-        document.getElementById("coach1-naam").textContent = coaches[0].naam;
-        document.getElementById("coach1-specialisatie").textContent = coaches[0].specialisatie;
-
-        // Coach 2
-        document.getElementById("coach2-icon").textContent = coaches[1].icon;
-        document.getElementById("coach2-voornaam").textContent = coaches[1].voornaam;
-        document.getElementById("coach2-naam").textContent = coaches[1].naam;
-        document.getElementById("coach2-specialisatie").textContent = coaches[1].specialisatie;
-
-        // Coach 3
-        document.getElementById("coach3-icon").textContent = coaches[2].icon;
-        document.getElementById("coach3-voornaam").textContent = coaches[2].voornaam;
-        document.getElementById("coach3-naam").textContent = coaches[2].naam;
-        document.getElementById("coach3-specialisatie").textContent = coaches[2].specialisatie;
-
-        // Coach 4
-        document.getElementById("coach4-icon").textContent = coaches[3].icon;
-        document.getElementById("coach4-voornaam").textContent = coaches[3].voornaam;
-        document.getElementById("coach4-naam").textContent = coaches[3].naam;
-        document.getElementById("coach4-specialisatie").textContent = coaches[3].specialisatie;
+    // Javascript voor de coachcards
+    // Helper to auto generate coaches on student1page2
+    function renderCoaches(coaches){
+        if (!coaches || coaches.length === 0) {
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <p class="text-secondary fs-5">No coaches found.</p>
+                </div>
+            `;
+            return;
+        }
+        let result = "";
+        coaches.forEach(coach => {
+            result += `
+                <div class="col-lg-3 col-md-6">
+                    <div class="coach-card">
+                        <div id="coach-icon">${coach.icon}</div>
+                        <h4 id="coach-voornaam">${coach.voornaam}</h4>
+                        <h6 id="coach-naam">${coach.naam}</h6>
+                        <p id="coach-specialisatie">${coach.specialisatie}</p>
+                    </div>
+                </div>
+            `;
+        });
+        return result;
     }
 
-    loadFourCoaches();
+    // 1. Fetch and render 4 tips on page load
+    function fetchAndRenderCoaches() {
+        const container = document.getElementById('coachesContainer');
+        if (!container) return;
 
-    <!--Javascript voor de coachlist-->
+        // Show loading spinner
+        container.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-secondary">Loading tips...</p>
+            </div>
+        `;
+
+        fetch(`${API_BASE_URL}/four_random_coaches`)
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error('Failed to fetch coaches');
+                }
+            })
+            .then(data => {
+                container.innerHTML = renderCoaches(data.coaches);
+            })
+            .catch(err => {
+                console.error('Error fetching list:', err);
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="alert alert-danger d-inline-block shadow-sm">
+                            <strong>⚠️ Connection Error:</strong> Failed to load coaches. Please verify the backend is running.
+                        </div>
+                    </div>
+                `;
+            });
+    }
+    // Javascript voor de coachlist
     async function loadCoaches() {
         // const response = await fetch("http://localhost:8000/coach_list");
         const response = await fetch(`${API_BASE_URL}/coach_list`);
@@ -154,7 +184,7 @@ if (page === "page2") {
             })
         });
 
-        const result = await response.json();
+        // const result = await response.json();
 
         // Popup tonen
         showAfsprakenPopup();
@@ -174,8 +204,6 @@ if (page === "page2") {
     async function showAfsprakenPopup() {
         const popup = document.getElementById("afsprakenPopup");
         const list = document.getElementById("afsprakenList");
-
-        // const response = await fetch("http://localhost:8000/afspraken");
         const response = await fetch(`${API_BASE_URL}/afspraken`);
         const data = await response.json();
 
@@ -276,9 +304,8 @@ if (page === "page2") {
     setInterval(() => {
         currentIndex = (currentIndex + 1) % coachImages.length;
         document.getElementById("coachImage").src = coachImages[currentIndex];
-    }, 5000); // wisselt elke 5 seconden
+    }, 5000);// wisselt elke 5 seconden
+
+    // Initial list fetch
+    fetchAndRenderCoaches();
 }
-
-
-// Initial list fetch
-fetchAndRenderTips();
