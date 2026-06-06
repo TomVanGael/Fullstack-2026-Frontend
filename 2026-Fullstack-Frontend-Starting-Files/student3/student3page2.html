@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- Name: Keany Vanhauwaert
+    Class: 1WT Toegepaste Informatica
+    R-number: r0740423
+     -->
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  STYLESHEETS      -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/css/main.css">
+
+    <!--  FAVICONS  -->
+    <link rel="icon" type="image/png" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/2026-Fullstack-Frontend-Starting-Files/common/assets/site.webmanifest" />
+
+    <title>Lidmaatschap formulier</title>
+    <meta name="author" content="Keany Vanhauwaert" />
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-inner container">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
+                <img src="../common/assets/logo-navbar-neon.webp" alt="Logo" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../student1/student1page1.html">Student 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Student 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="student3page1.html">Student 3</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student4/student4page1.html">Student 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <form>
+        <h1>Lidmaatschap formulier</h1>
+
+        <div class="membership-form">
+            <label for="lastName" class="form-label">Achternaam:</label>
+            <input type="text" id="lastName" class="form-input" placeholder="Vul je achternaam in">
+        </div>
+        <div class="membership-form">
+            <label for="firstName" class="form-label">Voornaam:</label>
+            <input type="text" id="firstName" class="form-input" placeholder="Vul je voornaam in">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail:</label>
+            <input type="email" id="email" class="form-input" placeholder="Vul je e-mail in">
+        </div>
+        <div>
+            <label for="trainer">Trainer (optioneel)</label>
+            <select name="trainer" id="trainer">
+                <option>trainers aan het laden</option>
+            </select>
+        </div>
+        <div>
+            <label for="membership">Gekozen abonnement:</label>
+            <select name="membership" id="membership">
+                <option value="basis">Basis</option>
+                <option value="premium">Premium</option>
+                <option value="gigachad">Gigachad</option>
+            </select>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <p>© 2026 — Fictieve website voor een schoolopdracht</p>
+    <p>Gemaakt door Group L — <a href="https://www.thomasmore.be">Thomas More</a></p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Eigen Script -->
+<script src="js/student3.js"></script>
+</body>
+</html>
