@@ -91,7 +91,12 @@
                 <!--
                 Part below will be dynamically updated with JavaScript to reflect the current busyness.
                 The elements will be adjusted based on the data we receive from our API.
+                This is done in the JS-file.
                 -->
+                <div class="spinner text-center" id="spinner">
+                    <div class="spinner-border text-primary text-center" role="status"></div>
+                    <p class="text-primary text-center">Laden gegevens...</p>
+                </div>
 
                 <table class="table-busy" id="table-busy">
                     <caption style="text-align:right">Actuele drukte in de gym</caption>
@@ -106,6 +111,17 @@
 
                     </tbody>
                 </table>
+
+                <div class="text-danger" id="error-message">
+                    <div class="image-container"><img src="assets/exclamation.svg" width="50" height="50" class="color-filter"></div>
+                    <div id="error-text-container">
+                        <p>
+                            Er is een fout opgetreden bij het laden van de gegevens. Probeer het later opnieuw.
+                        </p>
+                    </div>
+                </div>
+
+
 
                 <a href="../index.html" class="btn-accent">Terug naar Home</a>
 
