@@ -5,8 +5,8 @@ formulier.addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Verander de tekst van de submit-knop en disable deze tijdelijk
-    const btnTekst = submitButton.innerText;
-    submitButton.innerText = "Laden...";
+    const btnHTML = submitButton.innerHTML;
+    submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Laden...';
     submitButton.disabled = true;
 
     // Dataverwerking
@@ -17,8 +17,41 @@ formulier.addEventListener("submit", function (event) {
 
     console.log("Verwerkte data:", data);
 
-    const apiUrl = "http://127.0.0.1:8000/student2page1"
+    const apiUrl = "http://127.0.0.1:8000/contact"
+
+    fetch(apiUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                // Als de server een errorstatus teruggeeft, toon de error
+                throw new Error("Er zijn problemen met de server: " + response.status);
+            }
+            return response.json();
+        })
+        .then(result => {
+            console.log("Gelukt!:", result);
+            // Een succesbericht tonen
+            contactForm.reset(); // Reset het formulier
+
+            const modalElement = document.getElementById('exampleModal');
+            const succesModal = bootstrap.Modal.getOrCreateInstance(modalElement);
+            succesModal.show();
+
+        })
+        .catch(error => {
+            console.error("Fout bij het verzenden van het formulier:", error);
+            alert("Er is een fout opgetreden bij het verzenden van het formulier. Probeer het opnieuw.")
+        })
+        .finally(() => {
+            // Foutafhandeling => resetten
+            submitButton.innerHTML = btnHTML;
+            submitButton.disabled = false;
+        });
 
 });
-
 
