@@ -7,8 +7,8 @@
    STUDENT 4 VARIABLES FOR COLORS
 -------------------------------- */
 :root {
-    --s4-accent: #C763F2;
-    --s4-accent-dark: #9632D9;
+    --s4-accent: #a406f3;
+    --s4-accent-dark: #7626a6;
     --s4-accent-soft: rgba(198, 99, 242, 0.15);
     --s4-transition: 0.5s ease;
     --s4-meter-lightgreen: #7ae07f;
@@ -22,23 +22,24 @@
 /* -------------------------------
    NAVBAR — Remove transformation and place menu op top of viewport
 -------------------------------- */
-.student4-page .navbar {
+.student4-settings .navbar {
     box-sizing: border-box;
     position: fixed;       /* Stays in place when scrolling */
     top: 0;                /* Stick to the top of the viewport */
     left: 0;
     width: 100%;           /* Full width */
-    background-color: #000;
+    background: transparent;
     z-index: 4;         /* Ensure it stays above other content */
     color: var(--s4-accent-dark);
     text-shadow: 0 0 60px var(--s4-accent-dark);
+    backdrop-filter: none;
 }
 
-.student4-page .nav-link.active {
+.student4-settings .nav-link.active {
     color: white;
 }
 
-.student4-page .nav-link:hover {
+.student4-settings .nav-link:hover {
     transform: translateY(0px); !important;
 }
 
@@ -46,7 +47,7 @@
    HERO SECTION — less opacity, margins and paddings smaller
    also rescale when hovering over the hero section
 -------------------------------- */
-.student4-page .hero_wrapper {
+.student4-settings .hero_wrapper {
     padding: 1rem 1rem 1rem;
     margin: 1rem auto;
     background: linear-gradient(
@@ -60,7 +61,7 @@
     scale: 100%;
 }
 
-.student4-page .hero:hover {
+.student4-settings .hero:hover {
     transform: scale(1.10);
     transition-duration: 2s;
 }
@@ -69,17 +70,17 @@
 /* -------------------------------
    TEXT OVERLAY (always on top)
 --------------------------------  */
-.student4-page .text-overlay {
+.student4-settings .text-overlay {
     display: flex;
     z-index: 4;
-    margin-top: 125px;
+    margin-top: 190px;
     margin-bottom: 100px;
 }
 
 /* -------------------------------
    FOOTER (always on bottom of viewport)
 --------------------------------  */
-.student4-page footer {
+.student4-settings footer {
     display: flex;  /* Maak van de footer een flex-container */
     position: fixed;
     bottom: 0;  /* Footer positie onderaan de viewport */
@@ -90,6 +91,21 @@
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+/* -------------------------------
+ Button with slightly other color (since visibility in table is not clear)
+--------------------------------  */
+.student4-settings .btn-accent {
+    background: var(--s4-accent);
+    color: #000;
+    font-weight: 700;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    border: none;
+    transition: var(--transition);
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+}
 /* -------------------------------
    BACKGROUND IMAGE
 --------------------------------  */
@@ -107,18 +123,27 @@
 }
 
 /* -------------------------------
+   Small menu other color for better visibility
+--------------------------------  */
+.navbar-toggler {
+     background-color: var(--s4-accent);
+ }
+
+/* -------------------------------
    TABLE css
 --------------------------------  */
 .table-busy {
     width: 90%;
     border-collapse: collapse;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     border: none;
 
     th, td {
         border: none;
         padding: 8px;
         text-align: center;
+        background-blend-mode: multiply;
+        opacity: 80%;
     }
 
     th {
@@ -127,6 +152,14 @@
 
     tr:nth-child(even) {
         background-color: var(--color-accent);
+        background-blend-mode: multiply;
+        opacity: 80%;
+    }
+
+    tr:nth-child(odd) {
+        background-color: var(--s4-accent-dark);
+        background-blend-mode: multiply;
+        opacity: 80%;
     }
 
     caption-side: bottom;
@@ -190,3 +223,135 @@
     background: linear-gradient(to right, var(--s4-meter-lightred), var(--s4-meter-darkred));
 }
 
+/* --------------------------------
+   Contaijner for the movie in case hero-frame is not shown (smaller screens)
+   but we use this container instead to center the movie
+--------------------------------- */
+.movie-container {
+    display: grid;
+    place-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+/* Filter to recolor the exclamation-mark */
+.color-filter {
+    filter: invert(14%) sepia(86%) saturate(4708%) hue-rotate(278deg) brightness(101%) contrast(119%);
+}
+
+/* settings to give the spinner another color */
+.student4-settings .text-primary {
+    color: var(--s4-accent) !important;
+}
+
+/* -------------------------------
+   RESPONSIVE TWEAKS
+   * No hero-wrapper around movie
+   * Move menu-item to left instead of right and make it absolute positioned (so it does not move when scrolling)
+   -------------------------------- */
+@media only screen and (max-width: 576px) {
+    /* Created separate settings for small sized screens to prevent the logo and menu are placed on top of each other
+    */
+    .student4-settings {
+        .hero_wrapper {
+            display: none;
+        }
+        .hero_wrapper_mobile {
+            display: block;
+        }
+        .text-overlay {
+            margin-top: 90px;
+        }
+        .navbar-toggler-icon {
+            height: 1em;
+            width: 1em;
+        }
+
+        .navbar {
+            backdrop-filter: blur(6px);
+        }
+
+        .text-danger {
+            color: var(--s4-accent);
+            text-shadow: 0 0 60px var(--s4-accent);
+            font-size: 1.0em;
+            text-align: center;
+            border: 2px solid var(--s4-accent-dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+    .student4-settings .hero_wrapper {
+        display: none;
+    }
+    .student4-settings .hero_wrapper_mobile {
+        display: block;
+    }
+
+    .student4-settings .text-overlay {
+        margin-top: 145px;
+    }
+
+    .student4-settings .text-danger {
+        color: var(--s4-accent);
+        text-shadow: 0 0 60px var(--s4-accent);
+        font-size: 1.2em;
+        text-align: center;
+        border: 2px solid var(--s4-accent-dark);
+        border-radius: 12px;
+        padding: 1.5rem;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .student4-settings .navbar {
+        backdrop-filter: blur(6px);
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .student4-settings .hero_wrapper_mobile {
+        display: none;
+    }
+
+    .student4-settings .hero_wrapper {
+        display: block;
+    }
+
+    .student4-settings .text-overlay {
+        margin-top: 190px;
+    }
+
+    .student4-settings .navbar {
+        backdrop: blur(6px);
+    }
+
+    .student4-settings .text-danger {
+        color: var(--s4-accent);
+        text-shadow: 0 0 60px var(--s4-accent);
+        font-size: 1.2em;
+        text-align: center;
+        border: 2px solid var(--s4-accent-dark);
+        border-radius: 12px;
+        padding: 0.5rem;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .student4-settings .navbar {
+        backdrop-filter: blur(6px);
+    }
+}

@@ -1,6 +1,14 @@
 @import "bootstrap.min.css";
 @import "global_vars.css";
 
+/*persoonlijke stylesheet imports*/
+
+@import "../../student1/css/student1.css";
+@import "../../student3/css/student3.css";
+@import "../../student4/css/student4.css";
+@import "../../student2/css/student2.css";
+
+
 /* ================================
    MAIN.CSS — Industrial Neon 2.0
    Lichter, dynamischer, moderner
@@ -130,6 +138,27 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 2;
 }
+
+/* ================================
+   NAVBAR TOGGLER — Neon Accent
+================================ */
+.navbar-toggler {
+    border: 2px solid var(--color-accent); /* paarse rand */
+    border-radius: 6px;
+    padding: 6px;
+    transition: var(--transition);
+}
+
+.navbar-toggler:hover {
+    border-color: var(--color-accent-dark);
+    box-shadow: 0 0 12px var(--color-accent);
+}
+
+/* Toggler icon in neon paars */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23C763F2' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
 
 /* -------------------------------
    BUTTONS — Modern Rounded
@@ -274,4 +303,112 @@ footer a {
     color: var(--color-accent);
     font-weight: 600;
     text-decoration: none;
+}
+
+/* ============================================
+   404 PAGE — Industrial Neon 2.0 Styling
+============================================ */
+
+.page-404 {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.page-404 h1 {
+    font-family: var(--font-heading);
+    font-size: 120px;
+    color: var(--color-highlight);
+    text-shadow: 0 0 20px var(--color-highlight), 0 0 40px var(--color-highlight);
+    margin-bottom: 10px;
+}
+
+.page-404 h2 {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    color: var(--color-accent);
+    text-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent);
+    margin-bottom: 30px;
+}
+
+.page-404 p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    color: var(--color-text);
+}
+
+.btn-404-home {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--color-accent-dark);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 10px var(--color-accent-dark);
+}
+
+.btn-404-home:hover {
+    background: var(--color-accent);
+    box-shadow: 0 0 20px var(--color-accent);
+}
+
+.glitch {
+    font-size: 22px;
+    color: var(--color-accent-alt);
+    text-shadow: 0 0 10px var(--color-accent-alt);
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+    }
+}
+
+/* -------------------------------
+   Mobile First navbar
+-------------------------------- */
+@media (max-width: 576px) {
+    .navbar-brand img {
+        height: 80px;
+        margin-left: 0;
+    }
+
+    .navbar {
+        padding: 0.4rem 1rem;
+    }
+
+    /* -------------------------------
+        Mobile First hero
+      -------------------------------- */
+    .hero_wrapper {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* -------------------------------
+        Mobile First cards
+      -------------------------------- */
+    .team-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .team-grid {
+        gap: 1.2rem;
+    }
 }
