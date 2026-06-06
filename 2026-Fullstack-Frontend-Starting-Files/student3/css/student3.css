@@ -36,6 +36,7 @@ Industriele look met paars, geel en zwart
     margin: 0 auto;
     padding: 15px;
     box-sizing: border-box;
+
 }
 
 .membership-wrapper {
@@ -44,10 +45,12 @@ Industriele look met paars, geel en zwart
     border-radius: 20px;
     padding: 1rem;
     box-shadow: 0 0 20px var(--color-accent-alt);
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
