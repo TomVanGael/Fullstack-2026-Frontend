@@ -86,7 +86,7 @@ if (page === "page2") {
             result += `
                 <div class="col-lg-3 col-md-6">
                     <div class="coach-card">
-                        <div id="coach-icon">${coach.icon}</div>
+                        <div id="coach-icon"  class="coach-icon">${coach.icon}</div>
                         <h4 id="coach-voornaam">${coach.voornaam}</h4>
                         <h6 id="coach-naam">${coach.naam}</h6>
                         <p id="coach-specialisatie">${coach.specialisatie}</p>
