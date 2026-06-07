@@ -140,7 +140,7 @@
     box-shadow: 0 0 12px var(--s1-accent);
 }
 
-.tip-icon, .coach-icon {
+.tip-icon, .coach-icon, .icon {
     font-size: 2.4rem;
     margin-bottom: 10px;
 }
