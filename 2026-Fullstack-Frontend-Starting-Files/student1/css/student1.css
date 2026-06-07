@@ -1,22 +1,23 @@
 /* ==========================================================
-   STUDENT 1 — Name: Van Gael Tom
+    Name: Van Gael Tom
     Class: 1WT Toegepaste Informatica
     R-number: r1114549
- Voeding & Lifestyle - Industrial Neon 2.0 Accent Variant
+    Industrial Neon 2.0 Accent Variant
 ============================================================= */
 
 /* -------------------------------
-   STUDENT 1 ACCENT COLORS
+   ROOT ACCENT COLORS
 -------------------------------- */
 :root {
     --s1-accent: #C763F2;
     --s1-accent-dark: #9632D9;
+    --s1-accent-pressed: #7a22b3;
     --s1-accent-soft: rgba(198, 99, 242, 0.15);
 }
 
-/* -------------------------------
-   NAVBAR — Accent Highlight
--------------------------------- */
+/* ==========================================================
+   NAVBAR
+============================================================= */
 .student1-page .navbar {
     border-bottom: 2px solid var(--s1-accent);
     background: rgba(0, 0, 0, 0.6);
@@ -28,9 +29,9 @@
     text-shadow: 0 0 6px var(--s1-accent);
 }
 
-/* -------------------------------
-   HERO — Student 1 Variant
--------------------------------- */
+/* ==========================================================
+   HERO SECTION
+============================================================= */
 .hero.student1-hero {
     padding: 2rem;
     background: linear-gradient(
@@ -54,9 +55,9 @@
     margin: 0 auto 2rem;
 }
 
-/* -------------------------------
-   BUTTONS — Student 1 Accent
--------------------------------- */
+/* ==========================================================
+   BUTTONS
+============================================================= */
 .btn-s1 {
     background: var(--s1-accent);
     color: #000;
@@ -64,10 +65,10 @@
     padding: 0.8rem 1.8rem;
     border-radius: 50px;
     border: none;
-    transition: var(--transition);
     letter-spacing: 1px;
     text-decoration: none;
     display: inline-block;
+    transition: var(--transition);
     box-shadow: 0 0 10px rgba(198, 99, 242, 0.4);
 }
 
@@ -79,9 +80,16 @@
     0 0 14px var(--s1-accent);
 }
 
-/* -------------------------------
-   CONTENT BLOCKS — Industrial Cards
--------------------------------- */
+.btn-s1:active {
+    background: var(--s1-accent-pressed) !important;
+    transform: translateY(0);
+    box-shadow: 0 0 6px rgba(0,0,0,0.6),
+    0 0 10px var(--s1-accent-dark);
+}
+
+/* ==========================================================
+   CONTENT SECTIONS
+============================================================= */
 .s1-section {
     background: rgba(255,255,255,0.03);
     padding: 2.5rem;
@@ -103,9 +111,9 @@
     color: var(--color-text);
 }
 
-/* -------------------------------
-   IMAGES — Industrial Hover
--------------------------------- */
+/* ==========================================================
+   IMAGES
+============================================================= */
 .s1-img {
     width: 100%;
     height: 280px;
@@ -123,6 +131,16 @@
     0 0 18px var(--s1-accent);
 }
 
+/* ==========================================================
+   CARDS (Info, Tips, Coaches)
+============================================================= */
+.info-card.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(198, 99, 242, 0.15);
+}
+
 .tip-card, .coach-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
@@ -134,7 +152,7 @@
     height: 100%;
 }
 
-.tip-card:hover , .coach-card:hover {
+.tip-card:hover, .coach-card:hover {
     transform: translateY(-6px);
     border-color: var(--s1-accent);
     box-shadow: 0 0 12px var(--s1-accent);
@@ -162,33 +180,27 @@
     opacity: 0.9;
 }
 
-/* -------------------------------
-   PAGE LOWER BACKGROUND HEIGHT FIX
-   (Achtergrond half zo hoog)
--------------------------------- */
-/* Zorg dat de algemene achtergrond niet stoort op deze pagina */
+/* ==========================================================
+   PAGE LOWER BACKGROUND
+============================================================= */
 body.student1-page {
     background-image: none !important;
 }
-/* -------------------------------
-   PAGE LOWER BACKGROUND — alleen achter de middelste kaders
--------------------------------- */
-/* de afbeelding zelf */
+
 .page-lower-bg {
     position: relative;
     overflow: hidden;
     padding: 3rem 0;
 }
 
-/* De echte achtergrondafbeelding */
 .page-lower-bg .bg-img {
-    width: 100%;      /* 100% breed, nooit uitrekken */
-    height: auto;     /* behoudt verhoudingen */
+    width: 100%;
+    height: auto;
     display: block;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;      /* achter de content */
+    z-index: -1;
 }
 
 .page-lower-bg::after {
@@ -202,40 +214,53 @@ body.student1-page {
     pointer-events: none;
 }
 
-/* popup opmaak */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 9998;
+/* ==========================================================
+   POPUPS (Bootstrap Modals → oude stijl)
+============================================================= */
+.modal-backdrop.show {
+    opacity: 0.6 !important;
+    background-color: rgba(0,0,0,0.6) !important;
 }
 
-.popup-content {
-    background: rgba(66, 65, 65, 0.7);
-    padding: 20px;
-    border-radius: 10px;
+.modal-content {
+    background: rgba(66, 65, 65, 0.7) !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    backdrop-filter: blur(6px);
     width: 400px;
     max-height: 80vh;
     overflow-y: auto;
-    position: relative; /* <-- BELANGRIJK */
-    z-index: 9999; /* <-- BELANGRIJK */
+    color: var(--color-text) !important;
+    box-shadow: 0 0 12px rgba(198, 99, 242, 0.25);
 }
 
-.close {
-    float: right;
-    font-size: 24px;
-    cursor: pointer;
+.modal-header {
+    background: rgba(0,0,0,0.3) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.15) !important;
 }
 
-/* -------------------------------
-   Mobile First
--------------------------------- */
+.modal-title {
+    color: var(--color-highlight) !important;
+    text-shadow: 0 0 6px var(--s1-accent);
+}
+
+.modal-body {
+    color: var(--color-text) !important;
+}
+
+.modal-footer {
+    background: rgba(0,0,0,0.3) !important;
+    border-top: 1px solid rgba(255,255,255,0.15) !important;
+}
+
+.btn-close {
+    filter: invert(1) brightness(1.5);
+}
+
+/* ==========================================================
+   MOBILE FIRST
+============================================================= */
 @media (max-width: 768px) {
     .hero.student1-hero {
         padding: 3rem 1rem;
@@ -247,17 +272,12 @@ body.student1-page {
 }
 
 @media (max-width: 576px) {
-    /* -------------------------------
-       Mobile First navbar
-    -------------------------------- */
     .navbar-nav .nav-link {
         margin-left: 0;
         padding: 0.6rem 0;
         text-align: center;
     }
-    /* -------------------------------
-       Mobile First hero
-    -------------------------------- */
+
     .hero p {
         margin-bottom: 1.5rem;
     }
@@ -266,9 +286,7 @@ body.student1-page {
         padding: 0.7rem 1.4rem;
         font-size: 1rem;
     }
-    /* -------------------------------
-       Mobile First info-cards
-    -------------------------------- */
+
     .info-card {
         padding: 1.5rem 1rem;
     }

@@ -8,22 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--    SEO Optimalisatie-->
-    <meta name="description" content="Maak een afspraak met een lifestyle coach. Kies een coach gespecialiseerd in voeding, mindset, beweging of energiebeheer.">
-    <meta name="keywords" content="lifestyle coaching, voeding, mindset, beweging, gezondheid, coach kiezen">
+    <meta name="description" content="Maak een afspraak met een lifestyle coach.">
+    <meta name="keywords" content="lifestyle coaching, voeding, mindset, beweging">
     <meta name="author" content="Van Gael Tom — Thomas More Hogeschool">
 
-    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../common/css/main.css">
-    <!--    <link rel="stylesheet" href="css/student1.css">-->
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
-    <link rel="manifest" href="./assets/site.webmanifest" />
 
     <title>Lifestyle Coaching</title>
 </head>
@@ -32,7 +22,7 @@
 
 <header>
     <nav class="navbar navbar-expand-lg">
-        <div class="navbar-inner container">
+        <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
                 <img src="../common/assets/logo-navbar-neon.webp" alt="Logo" class="logo">
             </a>
@@ -54,154 +44,172 @@
 </header>
 
 <div class="hero_wrapper">
-    <section class="hero student1-hero">
+    <section class="hero student1-hero text-center">
         <h1>Onze Coaches<br>Uw Start</h1>
-        <p>Een energiek leven begint bij slimme keuzes. Ontdek hoe voeding, beweging en mindset elkaar versterken.</p>
-        <a href="#content" class="btn-s1">Vind uw coach</a>
+        <p>Een energiek leven begint bij slimme keuzes.</p>
+        <a href="#content" class="btn btn-primary btn-s1">Vind uw coach</a>
     </section>
 </div>
 
 <main id="content" class="mt-5">
 
     <div class="container">
-        <!-- DYNAMIC INFO CARDS -->
         <section class="s1-section text-center mb-5">
             <h2 class="mb-4">Onze coaches voor een gezonde lifestyle</h2>
 
             <div class="row g-4">
+
+                <!-- BOOTSTRAP CARD 1 -->
                 <div class="col-md-4">
-                    <div class="info-card">
-                        <div class="icon">🥗</div>
-                        <h3>Voeding</h3>
-                        <p>Kies voor natuurlijke, onbewerkte producten die je lichaam voeden en energie geven.</p>
+                    <div class="card info-card">
+                        <div class="card-body text-center">
+                            <div class="icon fs-1">🥗</div>
+                            <h3 class="card-title">Voeding</h3>
+                            <p class="card-text">Kies voor natuurlijke, onbewerkte producten die je lichaam voeden.</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- BOOTSTRAP CARD 2 -->
                 <div class="col-md-4">
-                    <div class="info-card">
-                        <div class="icon">💪</div>
-                        <h3>Beweging</h3>
-                        <p>Dagelijkse activiteit verbetert je uithouding, kracht en mentale gezondheid.</p>
+                    <div class="card info-card">
+                        <div class="card-body text-center">
+                            <div class="icon fs-1">💪</div>
+                            <h3 class="card-title">Beweging</h3>
+                            <p class="card-text">Dagelijkse activiteit verbetert je uithouding en mentale gezondheid.</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- BOOTSTRAP CARD 3 -->
                 <div class="col-md-4">
-                    <div class="info-card">
-                        <div class="icon">🧠</div>
-                        <h3>Mindset</h3>
-                        <p>Rust, slaap en stressmanagement zijn essentieel voor duurzame vooruitgang.</p>
+                    <div class="card info-card">
+                        <div class="card-body text-center">
+                            <div class="icon fs-1">🧠</div>
+                            <h3 class="card-title">Mindset</h3>
+                            <p class="card-text">Rust, slaap en stressmanagement zijn essentieel voor vooruitgang.</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>
+
     <div class="page-lower-bg">
         <div class="container">
-            <!-- CONTENT BLOCK 1 -->
-            <!-- CONTENT BLOCK 1 -->
+
             <section class="s1-section">
                 <h2>Kies jouw Lifestyle Coach</h2>
 
                 <div class="row align-items-center">
-                    <!-- Tekst + Formulier -->
-                    <div class="col-md-6">
-                        <p>
-                            Selecteer een coach die past bij jouw doelen. Elke coach heeft een unieke specialisatie
-                            binnen voeding, lifestyle, mindset of energiebeheer.
-                        </p>
 
+                    <div class="col-md-6">
+                        <p>Selecteer een coach die past bij jouw doelen.</p>
+
+                        <!-- BOOTSTRAP FORM -->
                         <form id="afspraakForm" class="coach-form">
-                            <!-- Coach selecteren -->
-                            <div class="mb-3" id="dropdownContainer">
+
+                            <div class="mb-3">
                                 <label for="coachSelect" class="form-label">Selecteer een coach</label>
                                 <select id="coachSelect" class="form-select">
                                     <option value="">-- Kies een coach --</option>
-                                    <!-- JS vult coaches automatisch in -->
                                 </select>
                             </div>
-                            <!-- Klantnaam -->
+
                             <div class="mb-3">
                                 <label for="klantNaam" class="form-label">Jouw naam</label>
-                                <input type="text" id="klantNaam" class="form-control" placeholder="Voor- en achternaam" required>
+                                <input type="text" id="klantNaam" class="form-control" required>
                             </div>
-                            <!-- Datum kiezen -->
+
                             <div class="mb-3">
                                 <label for="datum" class="form-label">Kies een datum</label>
                                 <input type="date" id="datum" class="form-control" required>
                             </div>
 
-                            <div class="d-flex gap-3 mt-2">
-                                <button type="submit" class="btn-s1">Afspraak vastleggen</button>
-                                <button type="button" id="openDeletePopup" class="btn-s1 btn-danger">Afspraken verwijderen</button>
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-primary btn-s1">Afspraak vastleggen</button>
+                                <button type="button" id="openDeletePopup" class="btn btn-danger btn-s1">Afspraken verwijderen</button>
                             </div>
 
                         </form>
-
                     </div>
 
-                    <!-- Afbeelding -->
                     <div class="col-md-6">
-                        <img id="coachImage" src="assets/GezondeVoeding.webp" class="img-fluid s1-img" alt="Gezonde voeding">
+                        <img id="coachImage" src="assets/GezondeVoeding.webp" class="img-fluid s1-img" alt="Coach">
                     </div>
+
                 </div>
             </section>
 
         </div>
     </div>
 
-    <!--popup met afspraakoverzicht-->
-    <div id="afsprakenPopup" class="popup">
-        <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
-            <h2>Alle afspraken</h2>
-            <div id="afsprakenList"></div>
-        </div>
-    </div>
-    <!--popup om 1 afspraak te verwijderen-->
-    <div id="deletePopup" class="popup">
-        <div class="popup-content">
-            <span id="closeDeletePopup" class="close">&times;</span>
-            <h2>Afspraken verwijderen</h2>
-
-            <div id="deleteList"></div>
-
-            <button id="deleteSelected" class="btn-s1 btn-danger mt-3">Verwijderen</button>
+    <!-- BOOTSTRAP MODAL: Afspraken -->
+    <div class="modal fade" id="afsprakenPopup" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content popup-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alle afspraken</h5>
+                    <button type="button" class="btn-close" id="closePopup" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="afsprakenList"></div>
+            </div>
         </div>
     </div>
 
-    <!--popup voor meldingen-->
-    <div id="meldingPopup" class="popup">
-        <div class="popup-content melding-content">
-            <span id="closeMelding" class="close">&times;</span>
-            <p id="meldingText"></p>
+    <!-- BOOTSTRAP MODAL: Delete -->
+    <div class="modal fade" id="deletePopup" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content popup-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Afspraken verwijderen</h5>
+                    <button type="button" class="btn-close" id="closeDeletePopup" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="deleteList"></div>
+                <div class="modal-footer">
+                    <button id="deleteSelected" class="btn btn-danger btn-s1">Verwijderen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP MODAL: Melding -->
+    <div class="modal fade" id="meldingPopup" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content popup-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Melding</h5>
+                    <button type="button" class="btn-close" id="closeMelding" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="meldingText"></p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <!-- EXTRA DYNAMIC CARDS -->
         <section class="s1-section mt-5">
             <h2 class="text-center mb-4">Onze Coaches</h2>
-
             <div class="row g-4" id="coachesContainer">
-                <!--                Load 4 coaches here...-->
+                <!--Dynamically add coaches cards-->
             </div>
         </section>
 
         <div class="text-center mt-5">
-            <a href="../index.html" class="btn-s1">Terug naar Home</a>
+            <a href="../index.html" class="btn btn-primary btn-s1">Terug naar Home</a>
         </div>
     </div>
+
 </main>
 
-<footer>
+<footer class="text-center mt-5">
     <p>© 2026 — Fictieve website voor een schoolopdracht</p>
     <p>Deze pagina gemaakt door Van Gael Tom — <a href="https://www.thomasmore.be">Thomas More</a></p>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Eigen script -->
 <script src="js/student1.js" defer></script>
 
 </body>
