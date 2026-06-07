@@ -1,5 +1,7 @@
 // Check welke pagina javascript nodig heeft
 const page = document.body.dataset.page;
+
+// const API_BASE_URL = 'http://localhost:8000';
 const API_BASE_URL = 'https://devops-project-backend-zy1h.onrender.com';
 
 if (page === "page1") {
@@ -29,7 +31,7 @@ if (page === "page1") {
         return result;
     }
 
-    // 1. Fetch and render 4 tips on page load
+    // Fetch and render 4 tips on page load
     function fetchAndRenderTips() {
         const container = document.getElementById('tipsContainer');
         if (!container) return;
@@ -97,7 +99,7 @@ if (page === "page2") {
         return result;
     }
 
-    // 1. Fetch and render 4 tips on page load
+    // Fetch and render 4 tips on page load
     function fetchAndRenderCoaches() {
         const container = document.getElementById('coachesContainer');
         if (!container) return;
@@ -156,8 +158,6 @@ if (page === "page2") {
         });
     }
 
-
-
     document.addEventListener("DOMContentLoaded", () => {
         loadCoaches();
 
@@ -165,7 +165,6 @@ if (page === "page2") {
         const vandaag = new Date().toISOString().split("T")[0];
         document.getElementById("datum").setAttribute("min", vandaag);
     });
-
 
     // Form submit handler
     document.getElementById("afspraakForm").addEventListener("submit", async function (e) {
@@ -176,34 +175,42 @@ if (page === "page2") {
         const datum = document.getElementById("datum").value;
 
         if (!coachId || !klantNaam || !datum) {
-            alert("Gelieve alle velden in te vullen.");
+            showMelding("Gelieve alle velden in te vullen.");
             return;
         }
 
+        try {
+            const response = await fetch(`${API_BASE_URL}/afspraak`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    coachid: parseInt(coachId),
+                    klantnaam: klantNaam,
+                    datum: datum
+                })
+            });
 
-        //TODO CHECK  res
-        // const response = await fetch("http://localhost:8000/afspraak", {
-        const response = await fetch(`${API_BASE_URL}/afspraak`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                coachid: parseInt(coachId),
-                klantnaam: klantNaam,
-                datum: datum
-            })
-        });
+            if (!response.ok) {
+                throw new Error(`Aanmaken mislukt (status: ${response.status})`);
+            }
 
-        // const result = await response.json();
+            const result = await response.json();
+            // Succes‑melding
+            showMelding(result.message || "Afspraak succesvol aangemaakt!");
 
-        // Popup tonen
-        showAfsprakenPopup();
+            // Optioneel: afspraken opnieuw tonen
+             showAfsprakenPopup();
 
-        // Formulier leegmaken
-        document.getElementById("coachSelect").value = "";
-        document.getElementById("klantNaam").value = "";
-        document.getElementById("datum").value = "";
+            // Formulier leegmaken
+            document.getElementById("coachSelect").value = "";
+            document.getElementById("klantNaam").value = "";
+            document.getElementById("datum").value = "";
 
+        } catch (err) {
+            showMelding("Er ging iets mis bij het aanmaken: " + err.message);
+        }
     });
+
 
     // afspraak popup
     document.getElementById("closePopup").addEventListener("click", () => {
@@ -277,25 +284,34 @@ if (page === "page2") {
         const selected = document.querySelector("input[name='deleteChoice']:checked");
 
         if (!selected) {
-            alert("Selecteer eerst een afspraak.");
+            showMelding("Selecteer eerst een afspraak.");
             return;
         }
 
         const afspraakid = selected.value;
+        try {
+            const res = await fetch(`${API_BASE_URL}/afspraak/${afspraakid}`, {
+                method: "DELETE"
+            });
 
-        // await fetch(`http://localhost:8000/afspraak/${afspraakid}`, {
-        await fetch(`${API_BASE_URL}/afspraak/${afspraakid}`, {
-            method: "DELETE"
-        });
+            if (!res.ok) {
+                throw new Error(`Verwijderen mislukt (status: ${res.status})`);
+            }
 
-        //alert("Afspraak verwijderd.");
+            const data = await res.json();
+            showMelding("Afspraak succesvol verwijderd!");
+
+        } catch (err) {
+            showMelding("Fout bij verwijderen: " + err.message);
+        }
 
         // Popup sluiten
         document.getElementById("deletePopup").style.display = "none";
 
         // popup opnieuw tonen met geüpdatete lijst
-        //showAfsprakenPopup();
+        // showAfsprakenPopup();
     });
+
 
     // Laad verschillende afbeeldingen
     const coachImages = [
@@ -312,6 +328,25 @@ if (page === "page2") {
         currentIndex = (currentIndex + 1) % coachImages.length;
         document.getElementById("coachImage").src = coachImages[currentIndex];
     }, 5000);// wisselt elke 5 seconden
+
+    // Toon een melding
+    function showMelding(text) {
+        const popup = document.getElementById("meldingPopup");
+        const msg = document.getElementById("meldingText");
+
+        msg.textContent = text;
+        popup.style.display = "flex";
+
+        // Automatisch sluiten na 2.5 sec
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 2500);
+    }
+
+    document.getElementById("closeMelding").addEventListener("click", () => {
+        document.getElementById("meldingPopup").style.display = "none";
+    });
+
 
     // Initial list fetch
     fetchAndRenderCoaches();
