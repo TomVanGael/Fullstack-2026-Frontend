@@ -199,7 +199,7 @@ if (page === "page2") {
             showMelding(result.message || "Afspraak succesvol aangemaakt!");
 
             // Optioneel: afspraken opnieuw tonen
-             showAfsprakenPopup();
+            showAfsprakenPopup();
 
             // Formulier leegmaken
             document.getElementById("coachSelect").value = "";
