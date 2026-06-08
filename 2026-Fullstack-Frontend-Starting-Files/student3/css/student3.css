@@ -119,6 +119,107 @@ Industriele look met paars, geel en zwart
     text-shadow: 2px 2px var(--color-accent-alt);
 }
 
+.membership-wrapper button span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px var(--color-accent-alt);
+}
+
+.membership-wrapper:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--color-accent-alt);
+}
+
+.review-wrapper {
+    border: 2px solid var(--color-accent);
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    box-shadow: 0 0 20px var(--color-accent-alt);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.review-wrapper h2 {
+    font-size: 1.6rem;
+    text-decoration: underline;
+    margin-bottom: .5rem;
+
+}
+
+#random_review{
+    font-size: 1.2rem;
+    display: block;
+    align-self: flex-start;
+}
+
+.review_naam{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--color-accent);
+}
+
+.form-title{
+    text-align: center;
+}
+
+.form-wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 2px solid var(--color-accent);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 0 20px var(--color-accent-alt);
+    background-color: black;
+    max-width: 750px;
+    margin: 2rem auto;
+}
+
+.form-dropdown {
+    margin-bottom: 1rem;
+}
+
+.btn-primary{
+    background-color: var(--color-accent-dark);
+    color: var(--color-text);
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    border: none;
+}
+
+.success-wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 2px solid var(--color-accent);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 0 20px var(--color-accent-alt);
+    background-color: black;
+    max-width: 750px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.success-card{
+    background-color: var(--color-accent-alt) !important;
+    color: var(--color-text);
+    padding: 1rem;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px var(--color-accent-alt);
+    max-width: 500px;
+}
+
+.homepage-btn{
+    max-width: 250px;
+}
+
 @media (min-width: 700px) {
     .membership-grid {
         grid-template-columns: repeat(3, 1fr);
