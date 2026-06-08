@@ -26,7 +26,7 @@
         <title>Ironcladd Fitness - Online druktemeter</title>
     </head>
 
-    <body class="student4-settings">
+    <body class="d-flex flex-column min-vh-100 student4-settings">
         <header>
             <div>
                 <nav class="navbar navbar-expand-lg">
@@ -52,92 +52,135 @@
             </div>
         </header>
 
-    <div id="background"></div>
+        <main class="mt-0">
+            <div class="background">
+                <img src="../common/assets/Background.webp" class="hero-img" alt="Gym foto">
+                <div class="container text-overlay">
+                    <h2>Voordelen van onze druktemeter:</h2>
 
-    <div class="text-overlay">
-        <main id="content" class="container mt-5">
-            <H1>Online druktemeter</H1>
-            Je wilt in alle rust trainen zodat je je focus kunt vasthouden. Niets zo vervelend als pas bij aankomst erachter te komen dat het drukker is dan je had gehoopt.
-            Daarom kun je hier de online drukte zien in de fitness én de groepslessen!
-            <p></p>
+                    <!-- 3 bootstrap columns with advantages... If there's time; make them dynamically -->
+                    <div class="row g-4">
+                        <div class="col-md-4 d-flex">
+                            <div class="card" id="advantage-1">
+                                <h3>Rustiger trainen</h3>
+                                <p>Train in een rustige omgeving zonder lange wachttijden.
+                                    Door vooraf de drukte hier te controleren vermijd je piekuren en kan je je volledig focussen op je training.</p>
+                            </div>
+                        </div>
 
-            <!-- Display hero_wrapper on large screen -->
-            <div class="hero_wrapper">
-                <section class="hero">
-                    <h1>Focus & Drukte</h1>
-                    <p>Een training kan alleen perfect zijn wanneer jij gefocust kunt blijven. Bekijk deze video van onze trainer voor meer uitleg.</p>
-                    <iframe src="https://share.synthesia.io/embeds/videos/5464067e-2666-47bd-b393-88788cb3e4f8" loading="lazy" title="Synthesia video player - Kom trainen bij Ironclad Fitness!" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;" style="border: none; padding: 0; margin: 0; overflow:hidden;"></iframe>
-                </section>
-            </div>
+                        <div class="col-md-4 d-flex">
+                            <div class="card" id="advantage-2">
+                                <h3>Tijd besparen</h3>
+                                <p>Niemand wil tijd verliezen. Door vooraf de drukte te checkken kies je het ideale moment en benut je je tijd optimaal!</p>
+                            </div>
+                        </div>
 
-            <!-- Don't display  hero_wrapper on small screen but do display the content. -->
-            <div class="hero_wrapper_mobile">
-                <h1>Focus & Drukte</h1>
-                <p>Een training kan alleen perfect zijn wanneer jij gefocust kunt blijven. Bekijk deze video van onze trainer voor meer uitleg.</p>
-                <div class="movie-container">
-                    <iframe src="https://share.synthesia.io/embeds/videos/5464067e-2666-47bd-b393-88788cb3e4f8" loading="lazy" title="Synthesia video player - Kom trainen bij Ironclad Fitness!" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;" style="border: none; padding: 0; margin: 0; overflow:hidden;"></iframe>
-                </div>
-                <br>
-                <p>
-            </div>
-
-            <section>
-                <H2>Drukte</H2>
-                Hieronder vind u de realtime drukte in de fitness.
-                De drukte wordt weergegeven als percentage van de maximale capaciteit.
-                Zo weet u precies wanneer het rustig is en wanneer u beter een ander moment kunt kiezen om te komen trainen.
-                <p></p>
-
-                <!--
-                Part below will be dynamically updated with JavaScript to reflect the current busyness.
-                The elements will be adjusted based on the data we receive from our API.
-                This is done in the JS-file.
-                -->
-                <div class="spinner text-center" id="spinner">
-                    <div class="spinner-border text-primary text-center" role="status"></div>
-                    <p class="text-primary text-center">Laden gegevens...</p>
-                </div>
-
-                <table class="table-busy" id="table-busy">
-                    <caption style="text-align:right">Actuele drukte in de gym</caption>
-                    <thead>
-                    <tr>
-                        <th>Groepsles</th>
-                        <th>Drukte</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-
-                <div class="text-danger" id="error-message">
-                    <div class="image-container"><img src="assets/exclamation.svg" width="50" height="50" class="color-filter" alt="error"></div>
-                    <div id="error-text-container">
-                        <p>
-                            Er is een fout opgetreden bij het laden van de gegevens. Probeer het later opnieuw.
-                        </p>
+                        <div class="col-md-4 d-flex">
+                            <div class="card" id="advantage-3">
+                                <h3>Minder frustratie</h3>
+                                <p>Met onze druktemeter vermijd je onverwachte drukte en train je zonder stress.</p>
+                            </div>
+                        </div>
                     </div>
+
+
+                    <section>
+                        <div class="row">
+                            <div class="col">
+                                <div class="hero_wrapper">
+                                    <div class="hero">
+                                        <h1>Focus & Drukte</h1>
+                                        <p>Een training kan alleen perfect zijn wanneer jij gefocust kunt blijven.</p>
+                                        <div class="movie-container">
+                                            <p>Bekijk deze video van onze trainer voor meer uitleg.</p>
+                                            <iframe src="https://share.synthesia.io/embeds/videos/5464067e-2666-47bd-b393-88788cb3e4f8" loading="lazy" title="Synthesia video player - Kom trainen bij Ironclad Fitness!" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;" style="border: none; padding: 0; margin: 0; overflow:hidden;"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="row">
+                            <div class="col">
+                                <div class="hero_wrapper">
+                                    <div class="hero">
+                                        <h2>Drukte</h2>
+                                        Hieronder vind u de realtime drukte in de fitness.
+                                        De drukte wordt weergegeven als percentage van de maximale capaciteit.
+                                        Zo weet u precies wanneer het rustig is en wanneer u beter een ander moment kunt kiezen om te komen trainen.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="row">
+                            <div class="spinner text-center" id="spinner">
+                                <div class="col">
+                                    <div class="spinner-border text-primary text-center" role="status"></div>
+                                    <p class="text-primary text-center">Laden actuele gegevens...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--
+                        Part below will be dynamically updated with JavaScript to reflect the current busyness.
+                        The elements will be adjusted based on the data we receive from our API.
+                        This is done in the JS-file.
+                        -->
+
+                        <div class="row">
+                            <div class="col">
+                                <table class="table-busy" id="table-busy">
+                                    <caption style="text-align:right">Actuele drukte in de gym</caption>
+                                    <thead>
+                                    <tr>
+                                        <th>Groepsles</th>
+                                        <th>Drukte</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- placeholder for dynamic content (will be filled in by JavaScript) -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-danger" id="error-message">
+                                <div class="image-container">
+                                    <img src="assets/exclamation.svg" width="50" height="50" class="color-filter image-container" alt="error">
+                                </div>
+                                <div id="error-text-container">
+                                    <p>
+                                        Er is een fout opgetreden bij het laden van de gegevens. Probeer het later opnieuw.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <a href="../index.html" class="btn-accent">Terug naar Home</a>
+                    </section>
+
                 </div>
-
-
-
-                <a href="../index.html" class="btn-accent">Terug naar Home</a>
-
-            </section>
+            </div>
         </main>
-    </div>
-    <footer>
-        <p>© 2026 — Fictieve website</p>
-        <p>Eddy Mouws (R1118617) — <a href="https://www.thomasmore.be">Thomas More</a></p>
-    </footer>
 
-    <!-- Load Bootstrap JS bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <footer>
+            <p>© 2026 — Fictieve website voor een schoolopdracht</p>
+            <p>Deze pagina is gemaakt door Eddy Mouws (R1118617) — <a href="https://www.thomasmore.be">Thomas More</a></p>
+        </footer>
 
-    <!-- load own JavaScript file -->
-    <script src="js/student4.js"></script>
+        <!-- Load Bootstrap JS bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- load own JavaScript file -->
+        <script src="js/student4.js"></script>
 
     </body>
 </html>
