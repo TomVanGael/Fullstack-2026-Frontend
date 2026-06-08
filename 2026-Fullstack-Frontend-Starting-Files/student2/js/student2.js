@@ -7,12 +7,23 @@
 const formulier = document.getElementById("contactForm");
 const submitButton = document.getElementById("submitBtn");
 
+//Bepalen van de API URL (afhankelijk van de omgeving)
+let BASE_URL;
+
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+
+    BASE_URL = "http://127.0.0.1:8000";
+
+} else {
+    BASE_URL = "https://devops-project-backend-zylh.onrender.com";
+}
 formulier.addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Verander de tekst van de submit-knop en disable deze tijdelijk
-    const btnHTML = submitButton.innerHTML;`
-    submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Laden...';`
+    const btnHTML = submitButton.innerHTML;
+
+    submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Laden...';
     submitButton.disabled = true;
 
     // Dataverwerking
@@ -23,9 +34,9 @@ formulier.addEventListener("submit", function (event) {
 
     console.log("Verwerkte data:", data);
 
-    const apiUrl = "http://127.0.0.1:8000/contact"
+    const contactUrl = `${BASE_URL}/contact`;
 
-    fetch(apiUrl, {
+    fetch(contactUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -63,7 +74,7 @@ formulier.addEventListener("submit", function (event) {
 
 const loadFaq = () => {
     const faqContainer = document.getElementById("faqContainer");
-    const apiUrl = "http://127.0.0.1:8000/faq";
+    const apiUrl = `${BASE_URL}/faq`;
 
 
     fetch(apiUrl)
