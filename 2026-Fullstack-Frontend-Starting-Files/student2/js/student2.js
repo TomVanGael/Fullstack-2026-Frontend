@@ -15,7 +15,7 @@ if (window.location.hostname === "localhost" || window.location.hostname === "12
     BASE_URL = "http://127.0.0.1:8000";
 
 } else {
-    BASE_URL = "https://devops-project-backend-zylh.onrender.com";
+    BASE_URL = "https://devops-project-backend-zy1h.onrender.com";
 }
 formulier.addEventListener("submit", function (event) {
     event.preventDefault();
