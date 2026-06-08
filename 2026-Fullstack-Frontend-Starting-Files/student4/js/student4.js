@@ -176,9 +176,9 @@ function parseLessons(lessons, table, spinner, errorMessage) {
 
                 // Cell 3 contains a button to indicate you're coming to the lesson, so the attendants can be counted in the database and the meter can be updated for other users
                 if (actualAttendants >= maxAttendants) {
-                    cell3.innerHTML = "<button disabled class='btn-accent'>Volzet</buttona>"
+                    cell3.innerHTML = "<button disabled class='btn-coming'>Volzet</buttona>"
                 } else {
-                    cell3.innerHTML = "<button id='btn-" + actualAttendantsId + "' onclick='increaseAttendants(" + actualAttendantsId + "," + actualAttendants + "," + maxAttendants + ")' class='btn-accent'>Ik kom!</buttona>"
+                    cell3.innerHTML = "<button id='btn-" + actualAttendantsId + "' onclick='increaseAttendants(" + actualAttendantsId + "," + actualAttendants + "," + maxAttendants + ")' class='btn-coming'>Ik kom!</buttona>"
                 }
                 spinner.style.display = "none";
 
