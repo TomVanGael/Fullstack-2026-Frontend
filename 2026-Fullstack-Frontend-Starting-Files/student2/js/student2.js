@@ -17,6 +17,9 @@ if (window.location.hostname === "localhost" || window.location.hostname === "12
 } else {
     BASE_URL = "https://devops-project-backend-zy1h.onrender.com";
 }
+
+//===================   Formulier ==========================================
+
 formulier.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -71,6 +74,41 @@ formulier.addEventListener("submit", function (event) {
         });
 
 });
+ // ================================ MAP - OPENINGSTIJDEN ========================================
+const loadHours = () => {
+    const hoursContainer = document.getElementById("hoursContainer");
+    const hoursUrl = `${BASE_URL}/hours`;
+
+    fetch(hoursUrl)
+        .then(response => {
+            if (!response.ok) {
+                // Als de server een error status teruggeeft, toon de error
+                throw new Error("⚠️ Er zijn problemen met de server: " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Opening hours data:", data);
+
+            setTimeout(() => {
+
+                hoursContainer.innerHTML = "";
+                data.forEach(item => {
+                    hoursContainer.innerHTML += `
+                        ${item.days}: ${item.time} <br>
+                `;
+                });
+            }, 1000); // Simuleer een vertraging van 1 seconde voor de laadtijd
+        })
+        .catch(error => {
+            console.error("Fout bij het laden van openingstijden:", error);
+            hoursContainer.innerHTML = "<p class='text-danger'>⚠️ Er is een fout opgetreden bij het laden van de openingstijden. Probeer het later opnieuw.</p>";
+        });
+}
+
+loadHours();
+
+// ================================== FAQ  ========================================
 
 const loadFaq = () => {
     const faqContainer = document.getElementById("faqContainer");
@@ -87,6 +125,9 @@ const loadFaq = () => {
         })
         .then(data => {
             console.log("FAQ data:", data);
+
+            setTimeout(() => {
+
             faqContainer.innerHTML = "";
             data.forEach((item, index) => {
                 const isFirst = index === 0;
@@ -106,9 +147,9 @@ const loadFaq = () => {
                         </div>
                     </div>
                 `;
-            })
-
-        })
+            });
+        }, 1000); // Simuleer een vertraging van 1 seconde voor de laadtijd
+    })
         .catch(error => {
             console.error("Fout bij het laden van FAQ:", error);
             faqContainer.innerHTML = "<p class='text-danger'>⚠️ Er is een fout opgetreden bij het laden van de FAQ. Probeer het later opnieuw.</p>";
@@ -116,4 +157,3 @@ const loadFaq = () => {
 }
 
 loadFaq();
-
