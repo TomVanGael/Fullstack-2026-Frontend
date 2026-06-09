@@ -60,6 +60,16 @@
 
                     <!-- 3 bootstrap columns with advantages... If there's time; make them dynamically -->
                     <div class="row g-4">
+
+                        <!-- spinner to show only when javascript is loading -->
+                        <div class="spinner text-center" id="spinnerAdvantages" style="display:none">
+                            <div class="col">
+                                <div class="spinner-border text-primary text-center" role="status"></div>
+                                <p class="text-primary text-center">Laden voordelen gegevens...</p>
+                            </div>
+                        </div>
+
+                        <!-- the advantages are already filled so when no data is returned there is data -->
                         <div class="col-md-4 d-flex">
                             <div class="card" id="advantage-1">
                                 <h3>Rustiger trainen</h3>

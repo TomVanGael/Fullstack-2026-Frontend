@@ -12,7 +12,7 @@ const baseURL = "https://devops-project-backend-zy1h.onrender.com";
 const debug = false;
 
 
-window.onload = updateLiveLessons();
+window.onload = updatePage();
 
 
 function outputDebugInfo(message) {
@@ -300,7 +300,80 @@ function updateLiveLessons() {
     //const response =  await fetch(baseURL + "/actual_lessons?weekday=" + weekDay + "&time=" + time);
     // const data  =   await response.json()
     // actualLessons = data.lessons;
+}
+
+function parseAdvantages(advantages, spinnerAdvantages) {
+    // Walk through the advantages
+    let i = 1;
+    for (let advantage of advantages) {
+        outputDebugInfo(advantage)
+        item = "advantage-" + i;
+        outputDebugInfo(item)
+
+        i++;
+        let itemAdvantages = document.getElementById(item);
+        if (!itemAdvantages) {
+            outputDebugInfo("Advantageitem "+ i + " element not found");
+            return;
+        } else {
+            // Update the contents of this item
+            html = "<h3>" + advantage[0] + "</h3>";
+            html += "<p>"+ advantage[1] + "</p>"
+            itemAdvantages.innerHTML = html;
+        }
+    }
+    spinnerAdvantages.style.display = "none";
+}
 
 
+function updateAdvantages() {
+    // Get the necessary elements
+    let spinnerAdvantages = document.getElementById("spinnerAdvantages");
+    if (!spinnerAdvantages) {
+        outputDebugInfo("Spinner element not found");
+        return;
+    } else {
+        // Start showing the spinner during loading data and hide the table.
+        spinnerAdvantages.style.display = "block";
+    }
 
+    // Call API te retrieve three advantages for quiet trainings
+    fetch(baseURL + "/advantages_for_quiet_trainings")
+        .then(response => {
+            if (!response.ok) {
+                if (response.status >= 500) {
+                    throw new Error('Server error, please try again later (HTTP ' + response.status + ')');
+                } else if (response.status >= 400) {
+                    throw new Error('Client error, please check your request (HTTP ' + response.status + ')');
+                } else {
+                    throw new Error('Unexpected error, status code: ' + response.status);
+                }
+            } else {
+                return response.json()
+            }
+        })
+        .then(data => {
+            advantages = data.advantages;
+            outputDebugInfo("Advantages: " + advantages);
+
+            if (!advantages || advantages.length === 0) {
+                outputDebugInfo("No advantages found; info already exists as fallback, will not overwrite");
+                spinner.style.display = "none";
+                return;
+            } else {
+                parseAdvantages(advantages);
+            }
+
+        })
+        .catch(err => {
+                // Log error, hide the spinner and display a message for the user
+                outputDebugInfo("Error fetching data: " + err);
+                spinnerAdvantages.style.display = "none";
+            }
+        )
+}
+
+function updatePage() {
+    updateAdvantages()
+    updateLiveLessons()
 }
