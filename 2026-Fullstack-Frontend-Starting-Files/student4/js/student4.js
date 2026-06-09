@@ -1,5 +1,9 @@
 /*!
   * Javascript to get dynamic data from database of our fitness
+  *
+    Name: Mouws Eddy
+    Class: 1WT Toegepaste Informatica
+    R-number: R1118617
 */
 
 // Use a const for the baseURL to easily switch between local and deployed backend.
