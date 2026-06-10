@@ -6,7 +6,8 @@
 // ==========================================================
 
 const page = document.body.dataset.page;
-const API_BASE_URL = 'https://devops-project-backend-zy1h.onrender.com';
+const API_BASE_URL = 'http://localhost:8000'; // FOR LOCAL TESTING ONLY
+// const API_BASE_URL = 'https://devops-project-backend-zy1h.onrender.com';
 
 
 // ==========================================================

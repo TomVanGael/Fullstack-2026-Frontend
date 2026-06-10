@@ -134,14 +134,21 @@
 /* ==========================================================
    CARDS (Info, Tips, Coaches)
 ============================================================= */
+
 .info-card.card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(198, 99, 242, 0.15);
+
+    .icon {
+        font-size: 2.5rem;
+    }
 }
 
-.tip-card, .coach-card {
+/* --- Shared base for tip & coach cards --- */
+.tip-card,
+.coach-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 25px;
@@ -150,35 +157,47 @@
     transition: 0.3s ease;
     backdrop-filter: blur(6px);
     height: 100%;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: var(--s1-accent);
+        box-shadow: 0 0 12px var(--s1-accent);
+    }
+
+    /* Shared icon styling */
+    .tip-icon,
+    .coach-icon,
+    .icon {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Shared title */
+    h4 {
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    /* Shared paragraph */
+    p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+    }
 }
 
-.tip-card:hover, .coach-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--s1-accent);
-    box-shadow: 0 0 12px var(--s1-accent);
+/* --- Coach-specific elements --- */
+.coach-card {
+    h6 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        font-weight: 400;
+    }
 }
 
-.tip-icon, .coach-icon, .icon {
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-}
-
-.tip-card h4, .coach-card h4 {
-    margin-bottom: 8px;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.coach-card h6 {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.tip-card p, .coach-card p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
 
 /* ==========================================================
    PAGE LOWER BACKGROUND
