@@ -24,59 +24,84 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="navbar-inner container">
-                <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
-                    <img src="../common/assets/logo-navbar-neon.webp" alt="Logo" class="logo">
-                </a>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img
+                        src="../common/assets/logo-navbar-neon.webp"
+                        alt="Logo"
+                        class="logo">
+            </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navMenu">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="../student1/student1page1.html">Student 1</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Student 2</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="student3page1.html">Student 3</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../student4/student4page1.html">Student 4</a></li>
-                    </ul>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../student1/student1page1.html">Voeding & Lifestyle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student2/student2page1.html">Contacteer Ons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student3/student3page1.html">Abonnementen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../student4/student4page1.html">Focus & Drukte</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <main class="membership-page-background">
+        <h1 class="form-title">Lidmaatschap formulier</h1>
+        <div id="form-container">
+            <form class="form-wrapper" id="membership-form">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Voornaam</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Vul je voornaam in">
                 </div>
-            </div>
-        </nav>
-    </header>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Achternaam</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Vul je achternaam in">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email-adres</label>
+                    <input type="email" class="form-control" id="email" placeholder="Vul je e-mail adres in">
+                </div>
+                <div class="form-dropdown">
+                    <label for="trainer">Trainer (optioneel)</label>
+                    <select class="form-select" aria-label="Default select example" id="trainer">
+                        <option value="" selected disabled>Trainers aan het laden</option>
+                    </select>
+                </div>
+                <div class="form-dropdown">
+                    <label for="membership">Gekozen abonnement:</label>
+                    <select class="form-select" aria-label="Default select example" id="membership">
+                        <option value="1">Basis</option>
+                        <option value="2">Premium</option>
+                        <option value="3">Gigachad</option>
+                    </select>
+                </div>
+                <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="submit-membership-form">
+                    Aanmelden
+                </button>
+            </form>
+        </div>
+    <!--   VERBORGEN SUCCES BERICHT     -->
+        <div id="success-container" class="text-center my-auto py-5 success-wrapper d-none">
+            <h3 class="fw-bold mb-3">Aanmelden gelukt</h3>
+            <p id="success-message" class="text-secondary mb-4 px-3"></p>
 
-    <main>
-        <form>
-            <h1>Lidmaatschap formulier</h1>
-
-            <div class="membership-form">
-                <label for="lastName" class="form-label">Achternaam:</label>
-                <input type="text" id="lastName" class="form-input" placeholder="Vul je achternaam in">
+            <div class="card bg-light border-0 p-3 mb-4 text-start success-card">
+                <div class="mb-1"><strong>naam:</strong> <span id="success-firstname"></span> <span id="success-lastname"></span></div>
+                <div class="mb-1"><strong>lidmaatschap:</strong> <span id="success-membership"></span></div>
+                <div class="mb-1"><strong>trainer:</strong> <span id="success-trainer"></span></div>
+                <div class="mb-0"><strong>confirmatie gestuurd naar:</strong> <span id="success-email"></span></div>
             </div>
-            <div class="membership-form">
-                <label for="firstName" class="form-label">Voornaam:</label>
-                <input type="text" id="firstName" class="form-input" placeholder="Vul je voornaam in">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">E-mail:</label>
-                <input type="email" id="email" class="form-input" placeholder="Vul je e-mail in">
-            </div>
-            <div>
-                <label for="trainer">Trainer (optioneel)</label>
-                <select name="trainer" id="trainer">
-                    <option value="geen" selected>Geen trainer</option>
-                </select>
-            </div>
-            <div>
-                <label for="membership">Gekozen abonnement:</label>
-                <select name="membership" id="membership">
-                    <option value="basis">Basis</option>
-                    <option value="premium">Premium</option>
-                    <option value="gigachad">Gigachad</option>
-                </select>
-            </div>
-        </form>
+            <a href="../index.html" class="btn btn-primary w-100 py-3 rounded-pill fw-bold homepage-btn">
+                Terug naar homepagina
+            </a>
+        </div>
     </main>
 
     <footer>

@@ -2,6 +2,11 @@
    STUDENT 4 — Druktemeter
    Industrial Neon 2.0 Accent Variant
 ====================================== */
+/*
+ Name: Mouws Eddy
+ Class: 1WT Toegepaste Informatica
+        R-number: R1118617
+*/
 
 /* -------------------------------
    STUDENT 4 VARIABLES FOR COLORS
@@ -23,13 +28,7 @@
    NAVBAR — Remove transformation and place menu op top of viewport
 -------------------------------- */
 .student4-settings .navbar {
-    box-sizing: border-box;
-    position: fixed;       /* Stays in place when scrolling */
-    top: 0;                /* Stick to the top of the viewport */
-    left: 0;
     width: 100%;           /* Full width */
-    background: transparent;
-    z-index: 4;         /* Ensure it stays above other content */
     color: var(--s4-accent-dark);
     text-shadow: 0 0 60px var(--s4-accent-dark);
     backdrop-filter: none;
@@ -59,6 +58,7 @@
     border-radius: 12px;
     width: 60%;
     scale: 100%;
+    position: relative;
 }
 
 .student4-settings .hero:hover {
@@ -66,20 +66,19 @@
     transition-duration: 2s;
 }
 
-
 /* -------------------------------
    TEXT OVERLAY (always on top)
 --------------------------------  */
 .student4-settings .text-overlay {
-    display: flex;
-    z-index: 4;
-    margin-top: 190px;
-    margin-bottom: 100px;
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, 0%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
 }
 
-/* -------------------------------
-   FOOTER (always on bottom of viewport)
---------------------------------  */
 .student4-settings footer {
     display: flex;  /* Maak van de footer een flex-container */
     position: fixed;
@@ -90,6 +89,7 @@
     padding: .5rem; /* Kleine Marge aan alle zijden van de footer */
     background-color: rgba(255, 255, 255, 0.3);
 }
+
 
 /* -------------------------------
  Button with slightly other color (since visibility in table is not clear)
@@ -105,21 +105,38 @@
     letter-spacing: 1px;
     text-decoration: none;
     display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+
+.student4-settings .btn-coming {
+    background: var(--s4-accent);
+    color: #000;
+    font-weight: 700;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    border: none;
+    transition: var(--transition);
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
 }
 /* -------------------------------
    BACKGROUND IMAGE
 --------------------------------  */
-#background {
-    content: "";
-    background-image: url('../../common/assets/Background.webp');
-    height: 100vh;
+.background {
+    position: relative;
+    min-height: auto !important;
+    height: auto !important;
     width: 100%;
-    background-size: cover;
-    background-position: center center;
-    position: fixed;
-    top: 15%;
-    opacity: 50%;
-    z-index: -1;
+    /*z-index: -1;        !* Make sure it's behind other content *!*/
+
+    img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;  /*  fill the complete screen without scaling */
+    }
 }
 
 /* -------------------------------
@@ -133,9 +150,10 @@
    TABLE css
 --------------------------------  */
 .table-busy {
-    width: 90%;
+    margin: 10px auto;
+    width: 85%;
     border-collapse: collapse;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border: none;
 
     th, td {
@@ -224,27 +242,51 @@
 }
 
 /* --------------------------------
-   Contaijner for the movie in case hero-frame is not shown (smaller screens)
+   Container for the movie in case hero-frame is not shown (smaller screens)
    but we use this container instead to center the movie
 --------------------------------- */
 .movie-container {
-    display: grid;
     place-items: center;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    padding: 10px;
-
 }
 
-/* Filter to recolor the exclamation-mark */
+/* Setting to recolor the exclamation-mark */
 .color-filter {
     filter: invert(14%) sepia(86%) saturate(4708%) hue-rotate(278deg) brightness(101%) contrast(119%);
 }
 
-/* settings to give the spinner another color */
+/* settings to give the spinner and text another color */
 .student4-settings .text-primary {
     color: var(--s4-accent) !important;
+}
+
+/* Settings for the error-message */
+.student4-settings .text-danger {
+    color: var(--s4-accent);
+    text-shadow: 0 0 60px var(--s4-accent);
+    font-size: 1.0em;
+    text-align: center;
+    border: 2px solid var(--s4-accent-dark);
+    border-radius: 12px;
+    padding: 1.0rem;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.student4-settings .image-container {
+    height: 50px;
+    width: 50px;
+    top: 0px;
+    display: inline-block;
+}
+
+.student4-settings .card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 3px solid var(--s4-accent-dark);
+    border-radius: 12px;
+    color: #fff;
+    margin: 1rem;
+    padding: 1em
 }
 
 /* -------------------------------
@@ -253,105 +295,58 @@
    * Move menu-item to left instead of right and make it absolute positioned (so it does not move when scrolling)
    -------------------------------- */
 @media only screen and (max-width: 576px) {
-    /* Created separate settings for small sized screens to prevent the logo and menu are placed on top of each other
-    */
     .student4-settings {
-        .hero_wrapper {
+        .movie-container {
             display: none;
         }
-        .hero_wrapper_mobile {
-            display: block;
-        }
-        .text-overlay {
-            margin-top: 90px;
-        }
+
         .navbar-toggler-icon {
             height: 1em;
             width: 1em;
         }
 
-        .navbar {
-            backdrop-filter: blur(6px);
+        .text-danger {
+            font-size: 1.0em;
         }
 
-        .text-danger {
-            color: var(--s4-accent);
-            text-shadow: 0 0 60px var(--s4-accent);
-            font-size: 1.0em;
-            text-align: center;
-            border: 2px solid var(--s4-accent-dark);
-            border-radius: 12px;
-            padding: 1.5rem;
-            width: 50%;
-            margin: 0 auto;
-            margin-bottom: 20px;
+        .s4-bustle-meter {
+            width: 100px;
+        }
+
+        .btn-accent {
+            margin-bottom: 120px;
         }
     }
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-    .student4-settings .hero_wrapper {
+    .student4-settings .movie-container {
         display: none;
-    }
-    .student4-settings .hero_wrapper_mobile {
-        display: block;
-    }
-
-    .student4-settings .text-overlay {
-        margin-top: 145px;
     }
 
     .student4-settings .text-danger {
-        color: var(--s4-accent);
-        text-shadow: 0 0 60px var(--s4-accent);
         font-size: 1.2em;
-        text-align: center;
-        border: 2px solid var(--s4-accent-dark);
-        border-radius: 12px;
-        padding: 1.5rem;
-        width: 50%;
-        margin: 0 auto;
-        margin-bottom: 20px;
     }
 
-    .student4-settings .navbar {
-        backdrop-filter: blur(6px);
+    .student4-settings .container {
+        top: 1rem;
+    }
+
+    .student4-settings .btn-accent {
+        margin-bottom: 100px;
     }
 }
 
 @media only screen and (min-width: 769px) {
-    .student4-settings .hero_wrapper_mobile {
-        display: none;
-    }
-
-    .student4-settings .hero_wrapper {
+    .student4-settings .movie-container {
         display: block;
     }
 
-    .student4-settings .text-overlay {
-        margin-top: 190px;
-    }
-
-    .student4-settings .navbar {
-        backdrop: blur(6px);
-    }
-
     .student4-settings .text-danger {
-        color: var(--s4-accent);
-        text-shadow: 0 0 60px var(--s4-accent);
-        font-size: 1.2em;
-        text-align: center;
-        border: 2px solid var(--s4-accent-dark);
-        border-radius: 12px;
-        padding: 0.5rem;
-        width: 50%;
-        margin: 0 auto;
-        margin-bottom: 20px;
+        font-size: 1.5em;
     }
-}
 
-@media only screen and (min-width: 991px) {
-    .student4-settings .navbar {
-        backdrop-filter: blur(6px);
+    .student4-settings .container {
+        top: 1rem;
     }
 }
